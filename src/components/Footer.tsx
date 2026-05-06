@@ -16,7 +16,7 @@ export function Footer() {
           {/* Logo + tagline */}
           <div>
             <Image
-              src="/images/logo.png"
+              src="/images/logo-transparent.png"
               alt="Bayside Land Services"
               width={200}
               height={67}
