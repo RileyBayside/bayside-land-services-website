@@ -48,7 +48,7 @@ export function Hero() {
         {/* Left — photo + headline (60%) */}
         <div className="relative flex-1 md:w-[60%]">
           <Image
-            src="/images/hero.jpg"
+            src="/images/hero-asv.png"
             alt="Forestry mulching in action"
             fill
             priority

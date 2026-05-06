@@ -13,7 +13,7 @@ export const SERVICES = [
     title: 'Forestry Mulching',
     description:
       'Our core speciality. Specialised Takeuchi mulchers convert dense vegetation, trees, and scrub into fine mulch in a single pass — no burning, no green waste removal, no site damage. Faster, cleaner, and better for the environment than traditional clearing.',
-    image: '/images/services/mulching.jpg',
+    image: '/images/services/mulching.png',
   },
   {
     title: 'Land Clearing',
