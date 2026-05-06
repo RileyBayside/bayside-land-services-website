@@ -14,14 +14,12 @@ const CONTACT_DETAILS = [
 ];
 
 const SERVICES_LIST = [
-  'Open Space Management',
-  'Slashing',
   'Forestry Mulching',
-  'Land Clearing',
-  'Firebreak Maintenance',
+  'Block & Land Clearing',
+  'Firebreak Construction',
+  'Vegetation Management',
   'Weed Control & Spraying',
-  'Contract Management',
-  'Mulch, Gravel & Stone',
+  'Council / Government Contract',
   'Other / General Enquiry',
 ];
 
@@ -68,7 +66,7 @@ export function Contact() {
             Request a Quote
           </h2>
           <p className="mb-9 text-base leading-[1.75] text-[#4a4a4a]">
-            Whether you&apos;re a council, government agency, or commercial client — we&apos;d love to discuss how Bayside Land Services can support your land management needs.
+            Whether you need a single block cleared or a long-term mulching and vegetation contract — we&apos;d love to discuss your project. We work with councils, developers, and private landowners across SEQ.
           </p>
           <div className="flex flex-col gap-[18px]">
             {CONTACT_DETAILS.map((item) => (

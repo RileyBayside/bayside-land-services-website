@@ -13,10 +13,10 @@ export function Services() {
             <div className="text-xs font-bold tracking-[3px] uppercase text-brand">What We Do</div>
             <div className="mx-auto mt-3.5 mb-[22px] h-[3px] w-12 rounded-sm bg-brand" />
             <h2 className="mb-[18px] font-heading text-[clamp(30px,4.5vw,46px)] font-bold leading-[1.12] text-black">
-              Forestry Mulching & Land Services
+              Forestry Mulching & Land Clearing
             </h2>
             <p className="text-base leading-[1.75] text-[#4a4a4a]">
-              Forestry mulching is our core speciality — backed by a full range of vegetation management services for councils, developers, and landowners across South-East Queensland.
+              Forestry mulching is our core speciality — backed by land clearing, firebreak construction, and vegetation management services for councils, developers, and landowners across SEQ.
             </p>
           </div>
         </FadeIn>

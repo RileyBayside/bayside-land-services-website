@@ -23,9 +23,9 @@ export const metadata: Metadata = {
   keywords: [
     'forestry mulching',
     'land clearing',
+    'block clearing',
     'vegetation management',
-    'slashing',
-    'firebreak maintenance',
+    'firebreak construction',
     'Redlands',
     'Moreton Bay',
     'SEQ',

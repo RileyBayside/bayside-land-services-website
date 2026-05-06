@@ -42,8 +42,8 @@ export function Hero() {
   };
 
   return (
-    <section id="top" className="relative min-h-screen bg-[#111]">
-      <div className="relative flex min-h-screen flex-col md:flex-row">
+    <section id="top" className="relative flex min-h-screen flex-col bg-[#111]">
+      <div className="relative flex flex-1 flex-col md:flex-row">
 
         {/* Left — photo + headline (60%) */}
         <div className="relative flex-1 md:w-[60%]">
