@@ -42,7 +42,7 @@ export function Nav() {
             alt="Bayside Land Services"
             width={504}
             height={169}
-            className={`w-auto rounded-sm transition-all duration-300 ${scrolled ? 'h-9' : 'h-[72px]'}`}
+            className={`w-auto rounded-sm transition-all duration-300 ${scrolled ? 'h-9' : 'h-[72px] [filter:invert(1)_hue-rotate(180deg)]'}`}
           />
         </button>
 
