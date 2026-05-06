@@ -39,12 +39,6 @@ export const SERVICES = [
       'We control invasive weeds and noxious species on cleared and mulched sites. Works best paired with mulching — we can handle both as part of the same job.',
     image: '/images/services/weed-spraying.png',
   },
-  {
-    title: 'Council & Government Contracts',
-    description:
-      'We\'ve been working with local councils and government agencies for decades. Fully ISO-certified, properly insured, and used to the paperwork that comes with public contracts.',
-    image: '/images/services/contracts.jpg',
-  },
 ] as const;
 
 export const CERTIFICATIONS = [

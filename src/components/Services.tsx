@@ -21,9 +21,19 @@ export function Services() {
           </div>
         </FadeIn>
 
-        <div className="grid grid-cols-1 gap-[18px] min-[501px]:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-[18px] min-[501px]:grid-cols-2 lg:grid-cols-6">
           {SERVICES.map((service, i) => (
-            <FadeIn key={service.title} delay={i * 0.04}>
+            <FadeIn
+              key={service.title}
+              delay={i * 0.04}
+              className={
+                i < 3
+                  ? 'lg:col-span-2'
+                  : i === 3
+                    ? 'lg:col-span-2 lg:col-start-2'
+                    : 'lg:col-span-2'
+              }
+            >
               <div className="group overflow-hidden rounded-[10px] border border-[#e5e5e3] bg-white transition-all duration-400 ease-[cubic-bezier(.22,1,.36,1)] hover:-translate-y-[5px] hover:border-brand hover:shadow-[0_20px_44px_rgba(0,0,0,0.07),0_4px_12px_rgba(0,0,0,0.04)]">
                 <div className="overflow-hidden">
                   <Image
@@ -32,7 +42,7 @@ export function Services() {
                     width={400}
                     height={330}
                     className="h-[210px] w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-[1.04]"
-                    loading="lazy"
+                    priority={i < 3}
                   />
                 </div>
                 <div className="px-5 pt-5 pb-6">
