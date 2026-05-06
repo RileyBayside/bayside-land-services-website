@@ -12,37 +12,37 @@ export const SERVICES = [
   {
     title: 'Forestry Mulching',
     description:
-      'Our core speciality. Specialised mulchers convert dense scrub, regrowth, and unwanted vegetation into fine mulch in a single pass — no burning, no green waste removal, no site damage. Faster, cleaner, and better for the environment than traditional clearing.',
+      'We take scrub, regrowth, and dense vegetation and grind it into mulch on the spot — one pass, nothing to haul away, no burning. Faster and cleaner than traditional clearing, and leaves the ground covered rather than bare.',
     image: '/images/services/mulching.png',
   },
   {
     title: 'Block & Land Clearing',
     description:
-      'Full site preparation for residential, commercial, and agricultural blocks. We clear everything from light regrowth to heavy scrub and fallen timber, leaving a clean, trafficable site ready for your next stage.',
+      'Whether it\'s a house block, a development site, or farmland with years of regrowth — we\'ll get it cleared. Light scrub to heavy timber, we leave the site clean and ready to work on.',
     image: '/images/services/land-clearing.jpg',
   },
   {
     title: 'Firebreak Construction',
     description:
-      'Design, construction, and ongoing maintenance of firebreaks for councils, rural properties, and large estates. Correctly positioned, cleared to regulatory standards, and maintained year-round for maximum bushfire protection.',
+      'We build and maintain firebreaks for rural properties, councils, and large landholdings. Cleared to the right width and maintained through the season so they actually work when you need them.',
     image: '/images/services/firebreak.jpg',
   },
   {
     title: 'Vegetation Management',
     description:
-      'Ongoing control of regrowth, invasive scrub, and unwanted vegetation across council reserves, road corridors, and commercial properties — using mulching equipment to leave a clean finish without removal costs.',
+      'Regrowth doesn\'t stop, so neither do we. We manage ongoing vegetation on council land, road corridors, and commercial properties — mulching it back rather than cutting and removing.',
     image: '/images/services/open-space.jpg',
   },
   {
     title: 'Weed Control & Spraying',
     description:
-      'Targeted control of invasive and noxious species across cleared and mulched sites. Integrated with our mulching services for a complete land management solution with minimal environmental impact.',
+      'We control invasive weeds and noxious species on cleared and mulched sites. Works best paired with mulching — we can handle both as part of the same job.',
     image: '/images/services/weed-control.jpg',
   },
   {
     title: 'Council & Government Contracts',
     description:
-      'Experienced in managing long-term vegetation and land clearing contracts for local councils and government agencies. ISO-certified, fully insured, and set up for compliance-heavy procurement processes.',
+      'We\'ve been working with local councils and government agencies for decades. Fully ISO-certified, properly insured, and used to the paperwork that comes with public contracts.',
     image: '/images/services/contract.jpg',
   },
 ] as const;
@@ -51,19 +51,19 @@ export const CERTIFICATIONS = [
   {
     code: 'ISO 14001',
     name: 'Environmental Management',
-    description: 'Certified environmental management systems ensuring minimal ecological impact across all mulching and clearing operations.',
+    description: 'Certified to international environmental standards — so you can be confident our clearing and mulching work is done with proper care for the land.',
     badge: '/images/iso/ems.jpg',
   },
   {
     code: 'ISO 45001',
     name: 'Occupational Health & Safety',
-    description: 'Internationally benchmarked workplace health and safety standards for every operator and site we work on.',
+    description: 'Everyone on our sites works under a certified safety system. No cowboys, no shortcuts — just a crew that goes home safely every day.',
     badge: '/images/iso/45001.jpg',
   },
   {
     code: 'ISO 9001',
     name: 'Quality Management',
-    description: 'Consistent service delivery and continuous improvement across all forestry mulching and land clearing operations.',
+    description: 'We document how we work and hold ourselves to it. Jobs get done properly, every time.',
     badge: '/images/iso/qms.jpg',
   },
 ] as const;
@@ -78,7 +78,7 @@ export const STATS = [
 
 export const ABOUT = {
   paragraph1:
-    'Bayside Land Services specialises in forestry mulching and land clearing across South-East Queensland. Using purpose-built forestry mulchers, we convert dense scrub, thick regrowth, and unwanted vegetation into fine mulch in a single pass — no burning, no green waste disposal, minimal ground disturbance.',
+    'We specialise in forestry mulching and land clearing across South-East Queensland. Our machines take dense scrub, thick regrowth, and unwanted vegetation and grind it into mulch on the spot — one pass, nothing to haul away, no burning.',
   paragraph2:
-    'With over 30 years delivering land clearing and vegetation management for councils, government agencies, developers, and private landowners, we bring ISO-certified professionalism to every job — from small acreage blocks to large-scale clearing and firebreak contracts across SEQ.',
+    'We\'ve been doing this for over 30 years, working with councils, developers, and private landowners right across SEQ. Every job — whether it\'s a small block or a large government contract — gets the same crew, the same equipment, and the same level of care.',
 } as const;

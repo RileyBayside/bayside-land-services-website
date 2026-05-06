@@ -26,10 +26,10 @@ export function Credentials() {
             </div>
             <div className="mx-auto mt-3.5 mb-[22px] h-[3px] w-12 rounded-sm bg-brand" />
             <h2 className="mb-4 font-heading text-[clamp(28px,4vw,42px)] font-bold text-white">
-              ISO Certified Operations
+              Certified Across the Board
             </h2>
             <p className="mx-auto max-w-[520px] text-base leading-[1.75] text-white/60">
-              Our ISO certifications demonstrate our commitment to environmental responsibility, workplace safety, and consistent service quality.
+              We hold ISO certifications across environment, safety, and quality — worth knowing when you&apos;re deciding who to put on your land.
             </p>
           </div>
         </FadeIn>

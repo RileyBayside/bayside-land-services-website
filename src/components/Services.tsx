@@ -16,7 +16,7 @@ export function Services() {
               Forestry Mulching & Land Clearing
             </h2>
             <p className="text-base leading-[1.75] text-[#4a4a4a]">
-              Forestry mulching is our core speciality — backed by land clearing, firebreak construction, and vegetation management services for councils, developers, and landowners across SEQ.
+              Forestry mulching is what we do best. We also handle land clearing, firebreak construction, and ongoing vegetation management for councils, developers, and landowners across SEQ.
             </p>
           </div>
         </FadeIn>

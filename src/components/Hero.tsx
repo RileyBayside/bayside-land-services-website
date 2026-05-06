@@ -73,7 +73,7 @@ export function Hero() {
               className="animate-fade-up mt-3.5 max-w-[460px] text-[clamp(14px,1.8vw,16px)] leading-[1.65] text-white/70"
               style={{ animationDelay: '0.2s' }}
             >
-              ISO-certified forestry mulching for councils, developers, and landowners across South-East Queensland. Dense scrub to fine mulch in a single pass — no burning, no green waste removal.
+              We mulch dense scrub and heavy regrowth into the ground — one pass, nothing to cart away, no burning. Working across SEQ for councils, developers, and landowners.
             </p>
 
             <div
@@ -101,7 +101,7 @@ export function Hero() {
               Get in Touch
             </h2>
             <p className="mb-4 text-[13px] leading-[1.55] text-white/55">
-              Tell us about your project and we&apos;ll get back to you promptly.
+              Tell us what you need and we&apos;ll get back to you quickly.
             </p>
 
             {status === 'sent' ? (

@@ -23,7 +23,7 @@ export function Footer() {
               className="h-10 w-auto [filter:brightness(0)_invert(1)]"
             />
             <p className="mt-4 text-sm leading-[1.7] text-white/45">
-              ISO-certified vegetation management and land services across South-East Queensland.
+              Forestry mulching and land clearing across South-East Queensland. 30+ years, ISO certified.
             </p>
           </div>
 

@@ -18,7 +18,7 @@ export function About() {
           <div className="text-xs font-bold tracking-[3px] uppercase text-brand">About Us</div>
           <div className="mt-3.5 mb-[22px] h-[3px] w-12 rounded-sm bg-brand" />
           <h2 className="mb-6 font-heading text-[clamp(28px,4vw,42px)] font-bold leading-[1.15] text-black">
-            {BUSINESS.established} Years of Forestry Mulching & Clearing
+            30 Years of Mulching, Clearing & Getting It Done
           </h2>
           <p className="mb-4 text-base leading-[1.8] text-[#4a4a4a]">{ABOUT.paragraph1}</p>
           <p className="mb-8 text-base leading-[1.8] text-[#4a4a4a]">{ABOUT.paragraph2}</p>

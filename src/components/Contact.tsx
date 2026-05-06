@@ -66,7 +66,7 @@ export function Contact() {
             Request a Quote
           </h2>
           <p className="mb-9 text-base leading-[1.75] text-[#4a4a4a]">
-            Whether you need a single block cleared or a long-term mulching and vegetation contract — we&apos;d love to discuss your project. We work with councils, developers, and private landowners across SEQ.
+            Got a block that needs clearing, or a longer-term contract to talk through? Fill in the form or give us a call — we&apos;re easy to deal with and will get back to you quickly.
           </p>
           <div className="flex flex-col gap-[18px]">
             {CONTACT_DETAILS.map((item) => (
