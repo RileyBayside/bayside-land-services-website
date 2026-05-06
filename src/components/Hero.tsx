@@ -65,7 +65,7 @@ export function Hero() {
               className="animate-fade-up font-heading text-[clamp(34px,5.5vw,60px)] font-bold leading-[1.1] text-white"
               style={{ animationDelay: '0.1s' }}
             >
-              Mulch It.<br />Don&apos;t Burn It.<br />
+              Clear the Block.<br />Skip the Burn.<br />
               <span className="text-brand-light">One Pass. Done.</span>
             </h1>
 
