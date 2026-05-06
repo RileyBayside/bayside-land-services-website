@@ -38,11 +38,11 @@ export function Nav() {
           className="cursor-pointer border-none bg-transparent p-0"
         >
           <Image
-            src="/images/logo-transparent.png"
+            src={scrolled ? '/images/logo-transparent.png' : '/images/logo-hero.png'}
             alt="Bayside Land Services"
             width={504}
             height={169}
-            className={`w-auto transition-all duration-300 ${scrolled ? 'h-9' : 'h-[144px] [filter:brightness(0)_invert(1)]'}`}
+            className={`w-auto transition-all duration-300 ${scrolled ? 'h-9' : 'h-[144px]'}`}
           />
         </button>
 
