@@ -56,8 +56,8 @@ export function Hero() {
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,17,17,0.5)_0%,rgba(17,17,17,0.1)_50%,rgba(17,17,17,0.6)_100%)] md:bg-[linear-gradient(to_right,rgba(17,17,17,0)_60%,rgba(17,17,17,0.9)_100%),linear-gradient(180deg,rgba(17,17,17,0.5)_0%,rgba(17,17,17,0.1)_50%,rgba(17,17,17,0.65)_100%)]" />
 
-          <div className="relative z-10 flex h-full flex-col justify-center px-8 pt-[120px] pb-10 md:px-12 md:pt-[160px]">
-            <div className="animate-fade-up mb-6 inline-block self-start rounded-[3px] border border-brand/30 bg-brand/15 px-3.5 py-[5px] text-[11px] font-bold tracking-[2.5px] uppercase text-white/80">
+          <div className="relative z-10 flex h-full flex-col justify-center px-6 pt-[120px] pb-10 md:px-10 md:pt-[160px]">
+            <div className="animate-fade-up mb-4 inline-block self-start rounded-[3px] border border-brand/30 bg-brand/15 px-3.5 py-[5px] text-[11px] font-bold tracking-[2.5px] uppercase text-white/80">
               Forestry Mulching Specialists &middot; {BUSINESS.region}
             </div>
 
@@ -70,14 +70,14 @@ export function Hero() {
             </h1>
 
             <p
-              className="animate-fade-up mt-5 max-w-[460px] text-[clamp(15px,2vw,18px)] leading-[1.75] text-white/70"
+              className="animate-fade-up mt-3.5 max-w-[460px] text-[clamp(14px,1.8vw,16px)] leading-[1.65] text-white/70"
               style={{ animationDelay: '0.2s' }}
             >
               ISO-certified forestry mulching for councils, developers, and landowners across South-East Queensland. Dense scrub to fine mulch in a single pass — no burning, no green waste removal.
             </p>
 
             <div
-              className="animate-fade-up mt-8 flex flex-wrap gap-3"
+              className="animate-fade-up mt-5 flex flex-wrap gap-3"
               style={{ animationDelay: '0.3s' }}
             >
               <button
@@ -89,8 +89,8 @@ export function Hero() {
             </div>
 
             {/* Stats — bottom of photo column, desktop only */}
-            <div className="mt-auto pt-12 hidden md:block">
-              <div className="grid grid-cols-4 gap-4 border-t border-white/[0.08] pt-6">
+            <div className="mt-auto pt-8 hidden md:block">
+              <div className="grid grid-cols-4 gap-4 border-t border-white/[0.08] pt-5">
                 {STATS.map((stat) => (
                   <div key={stat.label} className="text-center">
                     <div className="font-heading text-[32px] font-bold leading-none text-white">
@@ -107,15 +107,15 @@ export function Hero() {
         </div>
 
         {/* Right — quote form card (40%) */}
-        <div className="relative z-10 flex items-center bg-[#111111]/95 px-8 py-12 md:w-[40%] md:px-10 md:py-0">
-          <div className="w-full max-w-[400px] mx-auto">
+        <div className="relative z-10 flex items-center bg-[#111111]/95 px-6 py-10 md:w-[40%] md:px-8 md:py-0">
+          <div className="w-full max-w-[380px] mx-auto">
             <div className="mb-1 text-[11px] font-bold tracking-[3px] uppercase text-brand-light">
               Free Quote
             </div>
-            <h2 className="mb-1.5 font-heading text-[clamp(22px,3vw,30px)] font-bold text-white">
+            <h2 className="mb-1 font-heading text-[clamp(20px,2.5vw,26px)] font-bold text-white">
               Get in Touch
             </h2>
-            <p className="mb-6 text-[13px] leading-[1.6] text-white/55">
+            <p className="mb-4 text-[13px] leading-[1.55] text-white/55">
               Tell us about your project and we&apos;ll get back to you promptly.
             </p>
 
