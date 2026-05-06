@@ -13,37 +13,37 @@ export const SERVICES = [
     title: 'Forestry Mulching',
     description:
       'We take scrub, regrowth, and dense vegetation and grind it into mulch on the spot — one pass, nothing to haul away, no burning. Faster and cleaner than traditional clearing, and leaves the ground covered rather than bare.',
-    image: '/images/services/mulching.png',
+    image: '/images/services/mulching-asv.png',
   },
   {
     title: 'Block & Land Clearing',
     description:
       'Whether it\'s a house block, a development site, or farmland with years of regrowth — we\'ll get it cleared. Light scrub to heavy timber, we leave the site clean and ready to work on.',
-    image: '/images/services/land-clearing.jpg',
+    image: '/images/services/land-clearing.png',
   },
   {
     title: 'Firebreak Construction',
     description:
       'We build and maintain firebreaks for rural properties, councils, and large landholdings. Cleared to the right width and maintained through the season so they actually work when you need them.',
-    image: '/images/services/firebreak.jpg',
+    image: '/images/services/firebreak.png',
   },
   {
     title: 'Vegetation Management',
     description:
       'Regrowth doesn\'t stop, so neither do we. We manage ongoing vegetation on council land, road corridors, and commercial properties — mulching it back rather than cutting and removing.',
-    image: '/images/services/open-space.jpg',
+    image: '/images/services/vegetation-management.png',
   },
   {
     title: 'Weed Control & Spraying',
     description:
       'We control invasive weeds and noxious species on cleared and mulched sites. Works best paired with mulching — we can handle both as part of the same job.',
-    image: '/images/services/weed-control.jpg',
+    image: '/images/services/weed-spraying.png',
   },
   {
     title: 'Council & Government Contracts',
     description:
       'We\'ve been working with local councils and government agencies for decades. Fully ISO-certified, properly insured, and used to the paperwork that comes with public contracts.',
-    image: '/images/services/contract.jpg',
+    image: '/images/services/contracts.jpg',
   },
 ] as const;
 
