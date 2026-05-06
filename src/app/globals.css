@@ -1,0 +1,52 @@
+@import 'tailwindcss';
+
+/*
+ * Bayside Land Services — Brand Tokens
+ * Logo colours: Black + Forest Green
+ */
+
+@theme {
+  /* Brand Green */
+  --color-brand: #4A7C2F;
+  --color-brand-dark: #2D5016;
+  --color-brand-light: #6AAE45;
+  --color-brand-pale: #F0F5EC;
+
+  /* Neutrals */
+  --color-black: #1C1C1C;
+  --color-black-deep: #111111;
+
+  /* Font families — loaded via next/font in layout.tsx */
+  --font-heading: var(--font-source-serif);
+  --font-body: var(--font-dm-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body), sans-serif;
+  color: var(--color-black);
+  background: #fafafa;
+  overflow-x: hidden;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s ease both;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
