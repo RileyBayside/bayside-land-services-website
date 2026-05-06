@@ -98,7 +98,6 @@ export const STATS = [
   { value: '30+', label: 'Years Experience' },
   { value: 'ISO', label: 'Certified' },
   { value: 'SEQ', label: 'Coverage' },
-  { value: '24/7', label: 'Availability' },
 ] as const;
 
 export const ABOUT = {

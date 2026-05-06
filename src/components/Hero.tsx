@@ -56,7 +56,7 @@ export function Hero() {
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,17,17,0.5)_0%,rgba(17,17,17,0.1)_50%,rgba(17,17,17,0.6)_100%)] md:bg-[linear-gradient(to_right,rgba(17,17,17,0)_60%,rgba(17,17,17,0.9)_100%),linear-gradient(180deg,rgba(17,17,17,0.5)_0%,rgba(17,17,17,0.1)_50%,rgba(17,17,17,0.65)_100%)]" />
 
-          <div className="relative z-10 flex h-full flex-col justify-center px-6 pt-[120px] pb-10 md:px-10 md:pt-[160px]">
+          <div className="relative z-10 flex h-full flex-col justify-center px-10 pt-[120px] pb-10 md:px-16 md:pt-[160px]">
             <div className="animate-fade-up mb-4 inline-block self-start rounded-[3px] border border-brand/30 bg-brand/15 px-3.5 py-[5px] text-[11px] font-bold tracking-[2.5px] uppercase text-white/80">
               Forestry Mulching Specialists &middot; {BUSINESS.region}
             </div>
@@ -88,21 +88,6 @@ export function Hero() {
               </button>
             </div>
 
-            {/* Stats — bottom of photo column, desktop only */}
-            <div className="mt-auto pt-8 hidden md:block">
-              <div className="grid grid-cols-4 gap-4 border-t border-white/[0.08] pt-5">
-                {STATS.map((stat) => (
-                  <div key={stat.label} className="text-center">
-                    <div className="font-heading text-[32px] font-bold leading-none text-white">
-                      {stat.value}
-                    </div>
-                    <div className="mt-1.5 text-[10px] font-semibold tracking-[1.5px] uppercase text-white/55">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
 
@@ -184,16 +169,23 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Mobile stats strip */}
-      <div className="bg-[#1a1a1a] px-6 py-6 md:hidden">
-        <div className="grid grid-cols-4 gap-2">
-          {STATS.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="font-heading text-[26px] font-bold text-white">{stat.value}</div>
-              <div className="mt-1 text-[9px] font-semibold tracking-[1px] uppercase text-white/50">
-                {stat.label}
+      {/* Stats strip — full width, centered */}
+      <div className="bg-[#1a1a1a] border-t border-white/[0.06] px-6 py-7">
+        <div className="mx-auto flex max-w-[600px] items-center justify-center gap-16">
+          {STATS.map((stat, i) => (
+            <>
+              <div key={stat.label} className="text-center">
+                <div className="font-heading text-[28px] font-bold leading-none text-white md:text-[32px]">
+                  {stat.value}
+                </div>
+                <div className="mt-1.5 text-[10px] font-semibold tracking-[1.5px] uppercase text-white/50">
+                  {stat.label}
+                </div>
               </div>
-            </div>
+              {i < STATS.length - 1 && (
+                <div key={`divider-${i}`} className="h-8 w-px bg-white/10" />
+              )}
+            </>
           ))}
         </div>
       </div>
