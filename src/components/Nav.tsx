@@ -30,7 +30,7 @@ export function Nav() {
     >
       <div
         className={`mx-auto flex max-w-[1140px] items-center justify-between px-6 transition-all duration-300 ${
-          scrolled ? 'h-[68px]' : 'h-[100px]'
+          scrolled ? 'h-[68px]' : 'h-[160px]'
         }`}
       >
         <button
@@ -42,7 +42,7 @@ export function Nav() {
             alt="Bayside Land Services"
             width={504}
             height={169}
-            className={`w-auto transition-all duration-300 ${scrolled ? 'h-9' : 'h-[96px] [filter:brightness(0)_invert(1)]'}`}
+            className={`w-auto transition-all duration-300 ${scrolled ? 'h-9' : 'h-[144px] [filter:brightness(0)_invert(1)]'}`}
           />
         </button>
 

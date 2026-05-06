@@ -56,7 +56,7 @@ export function Hero() {
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,17,17,0.5)_0%,rgba(17,17,17,0.1)_50%,rgba(17,17,17,0.6)_100%)] md:bg-[linear-gradient(to_right,rgba(17,17,17,0)_60%,rgba(17,17,17,0.9)_100%),linear-gradient(180deg,rgba(17,17,17,0.5)_0%,rgba(17,17,17,0.1)_50%,rgba(17,17,17,0.65)_100%)]" />
 
-          <div className="relative z-10 flex h-full flex-col justify-center px-8 pt-[120px] pb-10 md:px-12 md:pt-[100px]">
+          <div className="relative z-10 flex h-full flex-col justify-center px-8 pt-[120px] pb-10 md:px-12 md:pt-[160px]">
             <div className="animate-fade-up mb-6 inline-block self-start rounded-[3px] border border-brand/30 bg-brand/15 px-3.5 py-[5px] text-[11px] font-bold tracking-[2.5px] uppercase text-white/80">
               Forestry Mulching Specialists &middot; {BUSINESS.region}
             </div>
