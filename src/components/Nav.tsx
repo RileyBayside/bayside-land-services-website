@@ -25,12 +25,12 @@ export function Nav() {
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
         scrolled
           ? 'bg-white/96 backdrop-blur-[12px] shadow-[0_1px_0_rgba(0,0,0,0.06)]'
-          : 'bg-transparent'
+          : 'bg-gradient-to-b from-black/50 to-transparent'
       }`}
     >
       <div
         className={`mx-auto flex max-w-[1140px] items-center justify-between px-6 transition-all duration-300 ${
-          scrolled ? 'h-[68px]' : 'h-[90px]'
+          scrolled ? 'h-[68px]' : 'h-[100px]'
         }`}
       >
         <button
@@ -42,9 +42,7 @@ export function Nav() {
             alt="Bayside Land Services"
             width={504}
             height={169}
-            className={`w-auto transition-all duration-300 ${scrolled ? 'h-9' : 'h-14'} ${
-              !scrolled ? '[filter:brightness(0)_invert(1)]' : ''
-            }`}
+            className={`w-auto rounded-sm transition-all duration-300 ${scrolled ? 'h-9' : 'h-[72px]'}`}
           />
         </button>
 
