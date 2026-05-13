@@ -46,7 +46,7 @@ export function JobDetailsPanel({ submission }: { submission: Submission }) {
 
       <div className="mb-5">
         <div className="mb-2 text-xs font-semibold uppercase tracking-[2px] text-[#999]">
-          {SERVICE_LABELS[submission.service]}
+          {SERVICE_LABELS[submission.service] ?? submission.service}
         </div>
         {details.map((d) => (
           <Row key={d.label} label={d.label} value={d.value} />

@@ -38,6 +38,9 @@ export function QuoteBuilder({ submission }: QuoteBuilderProps) {
       setSaveMsg('Saved');
       setTimeout(() => setSaveMsg(''), 2000);
       router.refresh();
+    } else {
+      setSaveMsg('Save failed');
+      setTimeout(() => setSaveMsg(''), 3000);
     }
   };
 
