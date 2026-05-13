@@ -52,7 +52,7 @@ export function Hero() {
             muted
             loop
             playsInline
-            className="absolute inset-0 h-full w-full object-cover brightness-[0.35] saturate-[0.9]"
+            className="absolute inset-0 h-full w-full object-cover brightness-[0.5] saturate-[0.9]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,17,17,0.5)_0%,rgba(17,17,17,0.1)_50%,rgba(17,17,17,0.6)_100%)] md:bg-[linear-gradient(to_right,rgba(17,17,17,0)_60%,rgba(17,17,17,0.9)_100%),linear-gradient(180deg,rgba(17,17,17,0.5)_0%,rgba(17,17,17,0.1)_50%,rgba(17,17,17,0.65)_100%)]" />
 
