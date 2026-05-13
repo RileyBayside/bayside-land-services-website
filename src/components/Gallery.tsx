@@ -5,9 +5,15 @@ import Image from 'next/image';
 import { FadeIn } from './FadeIn';
 import { X } from 'lucide-react';
 
-const GALLERY_IMAGES = Array.from({ length: 17 }, (_, i) =>
-  `/images/gallery/${String(i).padStart(2, '0')}.jpg`
-);
+const GALLERY_IMAGES = [
+  '/images/gallery/asv-mulch.png',
+  '/images/gallery/asv.png',
+  '/images/gallery/takeuchi-1.jpg',
+  '/images/gallery/takeuchi-2.jpg',
+  '/images/gallery/asv-rt120-1.jpg',
+  '/images/gallery/asv-rt120-2.jpg',
+  '/images/gallery/asv-rt120-3.jpg',
+];
 
 export function Gallery() {
   const [active, setActive] = useState<string | null>(null);
