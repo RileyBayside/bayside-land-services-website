@@ -66,8 +66,8 @@ export function Hero() {
               className="animate-fade-up font-heading text-[clamp(34px,5.5vw,60px)] font-bold leading-[1.1] text-white"
               style={{ animationDelay: '0.1s' }}
             >
-              Professional Land Clearing for<br />
-              <span className="text-brand-light">Government &amp; Council Contracts.</span>
+              Land Clearing<br />
+              <span className="text-brand-light">Built for Contract.</span>
             </h1>
 
             <p
