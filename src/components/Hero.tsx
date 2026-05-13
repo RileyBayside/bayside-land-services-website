@@ -59,22 +59,22 @@ export function Hero() {
 
           <div className="relative z-10 flex h-full flex-col justify-center px-10 pt-[120px] pb-10 md:px-16 md:pt-[160px]">
             <div className="animate-fade-up mb-4 inline-block self-start rounded-[3px] border border-brand/30 bg-brand/15 px-3.5 py-[5px] text-[11px] font-bold tracking-[2.5px] uppercase text-white/80">
-              Forestry Mulching Specialists &middot; {BUSINESS.region}
+              Vegetation Management Specialists &middot; Government &amp; Council Contracts &middot; SEQ
             </div>
 
             <h1
               className="animate-fade-up font-heading text-[clamp(34px,5.5vw,60px)] font-bold leading-[1.1] text-white"
               style={{ animationDelay: '0.1s' }}
             >
-              Clear the Block.<br />Skip the Burn.<br />
-              <span className="text-brand-light">One Pass. Done.</span>
+              Professional Land Clearing for<br />
+              <span className="text-brand-light">Government &amp; Council Contracts.</span>
             </h1>
 
             <p
               className="animate-fade-up mt-3.5 max-w-[460px] text-[clamp(14px,1.8vw,16px)] leading-[1.65] text-white/70"
               style={{ animationDelay: '0.2s' }}
             >
-              We mulch dense scrub and heavy regrowth into the ground — one pass, nothing to cart away, no burning. Working across SEQ for councils, developers, and landowners.
+              ISO-certified vegetation management, firebreak construction, and forestry mulching — delivered to scope, on time, and to an exceptional standard. Trusted by councils and government agencies across South-East Queensland for over 30 years.
             </p>
 
             <div
