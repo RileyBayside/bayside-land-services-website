@@ -36,11 +36,11 @@ export function SubmissionTable({ submissions }: SubmissionTableProps) {
         <table className="w-full border-collapse bg-white text-sm">
           <thead>
             <tr className="border-b border-[#e5e5e3] bg-[#fafafa]">
-              <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-[0.5px] text-[#777]">Date</th>
-              <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-[0.5px] text-[#777]">Customer</th>
-              <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-[0.5px] text-[#777]">Service</th>
-              <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-[0.5px] text-[#777]">Property</th>
-              <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-[0.5px] text-[#777]">Status</th>
+              <th scope="col" className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-[0.5px] text-[#777]">Date</th>
+              <th scope="col" className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-[0.5px] text-[#777]">Customer</th>
+              <th scope="col" className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-[0.5px] text-[#777]">Service</th>
+              <th scope="col" className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-[0.5px] text-[#777]">Property</th>
+              <th scope="col" className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-[0.5px] text-[#777]">Status</th>
             </tr>
           </thead>
           <tbody>

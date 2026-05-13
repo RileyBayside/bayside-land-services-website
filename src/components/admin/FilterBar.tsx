@@ -20,6 +20,7 @@ export function FilterBar({ statusFilter, serviceFilter, onStatusChange, onServi
   return (
     <div className="flex flex-wrap gap-3">
       <select
+        aria-label="Filter by status"
         className={selectClass}
         value={statusFilter}
         onChange={(e) => onStatusChange(e.target.value as SubmissionStatus | 'all')}
@@ -30,6 +31,7 @@ export function FilterBar({ statusFilter, serviceFilter, onStatusChange, onServi
         ))}
       </select>
       <select
+        aria-label="Filter by service"
         className={selectClass}
         value={serviceFilter}
         onChange={(e) => onServiceChange(e.target.value as ServiceType | 'all')}
