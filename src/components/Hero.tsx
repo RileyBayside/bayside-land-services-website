@@ -74,7 +74,7 @@ export function Hero() {
               className="animate-fade-up mt-3.5 max-w-[460px] text-[clamp(14px,1.8vw,16px)] leading-[1.65] text-white/70"
               style={{ animationDelay: '0.2s' }}
             >
-              ISO-certified vegetation management, firebreak construction, and forestry mulching — delivered to scope, on time, and to an exceptional standard. Trusted by councils and government agencies across South-East Queensland for over 30 years.
+              ISO-certified. Delivered to scope, on time, and to an exceptional standard — every job, every time.
             </p>
 
             <div
