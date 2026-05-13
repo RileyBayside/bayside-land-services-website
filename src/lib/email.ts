@@ -4,6 +4,15 @@ import { SERVICE_LABELS } from '@/data/quote-fields';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+function esc(str: unknown): string {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 function formatJobDetails(submission: Pick<Submission, 'service' | 'job_details'>): string {
   const details = submission.job_details as unknown as Record<string, string | number>;
   return Object.entries(details)
@@ -25,21 +34,21 @@ export async function sendNotificationEmail(submission: Submission) {
 
       <h3>Contact</h3>
       <p>
-        Name: ${submission.contact_name}<br>
-        Phone: ${submission.contact_phone}<br>
-        Email: ${submission.contact_email}
+        Name: ${esc(submission.contact_name)}<br>
+        Phone: ${esc(submission.contact_phone)}<br>
+        Email: ${esc(submission.contact_email)}
       </p>
 
       <h3>Property</h3>
       <p>
-        Address: ${submission.property_address}<br>
-        Size: ${submission.property_size}
+        Address: ${esc(submission.property_address)}<br>
+        Size: ${esc(submission.property_size)}
       </p>
 
-      <h3>Service: ${serviceName}</h3>
-      <pre>${jobDetails}</pre>
+      <h3>Service: ${esc(serviceName)}</h3>
+      <pre>${esc(jobDetails)}</pre>
 
-      ${submission.notes ? `<h3>Additional Notes</h3><p>${submission.notes}</p>` : ''}
+      ${submission.notes ? `<h3>Additional Notes</h3><p>${esc(submission.notes)}</p>` : ''}
 
       <p><a href="${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://bls-website.vercel.app'}/admin/submissions/${submission.id}">View in admin →</a></p>
     `,
@@ -56,7 +65,7 @@ export async function sendQuoteEmail(
     to: submission.contact_email,
     subject: `Your Quote from Bayside Land Services — ${quoteRef}`,
     html: `
-      <p>Hi ${submission.contact_name},</p>
+      <p>Hi ${esc(submission.contact_name)},</p>
       <p>Thank you for your enquiry. Please find your quote attached.</p>
       <p>This quote is valid for 30 days from the date of issue. If you have any questions or would like to proceed, please don't hesitate to get in touch.</p>
       <p>
