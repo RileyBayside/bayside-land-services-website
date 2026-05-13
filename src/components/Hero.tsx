@@ -67,7 +67,7 @@ export function Hero() {
               style={{ animationDelay: '0.1s' }}
             >
               Land Clearing<br />
-              <span className="text-brand-light">Built for Contract.</span>
+              <span className="text-brand-light">Exceptional Results, Every Time.</span>
             </h1>
 
             <p
