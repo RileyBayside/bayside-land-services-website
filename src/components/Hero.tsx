@@ -48,6 +48,7 @@ export function Hero() {
         <div className="relative flex-1 md:w-[60%]">
           <video
             src="/hero-video.mp4"
+            poster="/hero-poster.jpg"
             autoPlay
             muted
             loop
