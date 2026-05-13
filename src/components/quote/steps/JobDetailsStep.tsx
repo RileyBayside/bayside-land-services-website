@@ -61,7 +61,10 @@ export function JobDetailsStep({ data, onChange }: JobDetailsStepProps) {
                 className={`${inputClass} max-w-[200px]`}
                 placeholder={field.placeholder}
                 value={details[field.key] ?? ''}
-                onChange={(e) => updateField(field.key, Number(e.target.value))}
+                onChange={(e) => {
+                  const val = e.target.value === '' ? 0 : Number(e.target.value);
+                  updateField(field.key, isNaN(val) ? 0 : val);
+                }}
                 min={0}
               />
               {field.unit && <span className="text-sm text-[#777]">{field.unit}</span>}

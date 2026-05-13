@@ -19,7 +19,14 @@ export function ProgressBar({ currentStep, totalSteps, labels }: ProgressBarProp
           </span>
         ))}
       </div>
-      <div className="h-1.5 w-full rounded-full bg-[#e5e5e3]">
+      <div
+        className="h-1.5 w-full rounded-full bg-[#e5e5e3]"
+        role="progressbar"
+        aria-valuenow={currentStep}
+        aria-valuemin={1}
+        aria-valuemax={totalSteps}
+        aria-label={`Step ${currentStep} of ${totalSteps}: ${labels[currentStep - 1]}`}
+      >
         <div
           className="h-1.5 rounded-full bg-brand transition-all duration-500"
           style={{ width: `${((currentStep - 1) / (totalSteps - 1)) * 100}%` }}

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Check } from 'lucide-react';
 import type { QuoteFormData } from '@/types/quote';
+import { SERVICE_FIELDS } from '@/data/quote-fields';
 import { ProgressBar } from './ProgressBar';
 import { ContactStep } from './steps/ContactStep';
 import { PropertyStep } from './steps/PropertyStep';
@@ -23,9 +24,18 @@ const EMPTY_FORM: QuoteFormData = {
 };
 
 function isStepValid(step: number, data: QuoteFormData): boolean {
-  if (step === 1) return !!(data.contact_name && data.contact_email && data.contact_phone);
+  if (step === 1) {
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.contact_email);
+    const phoneOk = data.contact_phone.replace(/\D/g, '').length >= 8;
+    return !!(data.contact_name && emailOk && phoneOk);
+  }
   if (step === 2) return !!(data.property_address && data.property_size);
   if (step === 3) return !!data.service;
+  if (step === 4 && data.service) {
+    const fields = SERVICE_FIELDS[data.service];
+    const details = data.job_details as Record<string, string | number>;
+    return fields.every((f) => !f.required || (details[f.key] !== undefined && details[f.key] !== '' && details[f.key] !== 0));
+  }
   return true;
 }
 
