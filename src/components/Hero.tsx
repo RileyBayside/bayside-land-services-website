@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import { Check } from 'lucide-react';
 import { BUSINESS, STATS } from '@/data/content';
 
@@ -47,12 +46,13 @@ export function Hero() {
 
         {/* Left — photo + headline (60%) */}
         <div className="relative flex-1 md:w-[60%]">
-          <Image
-            src="/images/hero-asv.png"
-            alt="Forestry mulching in action"
-            fill
-            priority
-            className="object-cover brightness-[0.35] saturate-[0.9]"
+          <video
+            src="/hero-video.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover brightness-[0.35] saturate-[0.9]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,17,17,0.5)_0%,rgba(17,17,17,0.1)_50%,rgba(17,17,17,0.6)_100%)] md:bg-[linear-gradient(to_right,rgba(17,17,17,0)_60%,rgba(17,17,17,0.9)_100%),linear-gradient(180deg,rgba(17,17,17,0.5)_0%,rgba(17,17,17,0.1)_50%,rgba(17,17,17,0.65)_100%)]" />
 
