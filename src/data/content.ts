@@ -81,6 +81,7 @@ export const SERVICE_DETAILS = [
   {
     title: 'Forestry Mulching',
     image: '/images/services/mulching-asv.png',
+    video: '/images/services/mulching-video.mp4',
     description:
       'We take scrub, regrowth, and dense vegetation and grind it into mulch on the spot — one pass, nothing to haul away, no burning. The machinery works through heavy timber and thick understorey in a single pass, leaving the ground covered with a layer of fine mulch that protects the soil and suppresses regrowth. Faster and cleaner than traditional clearing methods.',
     bullets: [
@@ -93,6 +94,7 @@ export const SERVICE_DETAILS = [
   {
     title: 'Block & Land Clearing',
     image: '/images/services/land-clearing.png',
+    video: '/images/services/block-clearing-video.mp4',
     description:
       "Whether it's a development site, farmland with years of regrowth, or a large rural block — we'll get it cleared and leave it ready to work on. Light scrub through to heavy timber, our machines handle it in a single pass with no burning and no green waste removal required.",
     bullets: [
@@ -105,6 +107,7 @@ export const SERVICE_DETAILS = [
   {
     title: 'Firebreak Construction',
     image: '/images/services/firebreak.png',
+    video: '/images/services/firebreak-video.mp4',
     description:
       'We build and maintain firebreaks for rural properties, large landholdings, and councils. Cleared to the correct width for your requirements and maintained through the fire season so they actually work when you need them. We understand the regulations and build to them.',
     bullets: [
@@ -117,6 +120,7 @@ export const SERVICE_DETAILS = [
   {
     title: 'Vegetation Management',
     image: '/images/services/vegetation-management.png',
+    video: '/images/services/vegetation-management-video.mp4',
     description:
       "Regrowth doesn't stop, so neither do we. We manage ongoing vegetation on council land, road corridors, and commercial properties on a recurring basis — mulching it back in place rather than cutting and removing. More efficient, better for the soil, and no green waste to deal with.",
     bullets: [
@@ -129,6 +133,7 @@ export const SERVICE_DETAILS = [
   {
     title: 'Weed Control & Spraying',
     image: '/images/services/weed-spraying.png',
+    video: '/images/services/weed-control-video.mp4',
     description:
       "We control invasive weeds and noxious species on cleared and mulched sites using licensed operators and appropriate chemistry. Works best as part of an integrated program with mulching — we can schedule both as part of the same job so you're not paying two mobilisation costs.",
     bullets: [
