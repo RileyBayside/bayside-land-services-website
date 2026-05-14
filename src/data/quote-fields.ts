@@ -15,6 +15,19 @@ export interface QuoteField {
   required: boolean;
 }
 
+export interface AreaOption {
+  key: string;
+  label: string;
+  description: string;
+}
+
+export interface TerrainOption {
+  key: string;
+  label: string;
+  description: string;
+  image: string;
+}
+
 export const SERVICE_LABELS: Record<ServiceType, string> = {
   forestry_mulching: 'Forestry Mulching',
   block_clearing: 'Block & Land Clearing',
@@ -36,6 +49,48 @@ export const SERVICE_DESCRIPTIONS: Record<ServiceType, string> = {
     'Invasive weed and noxious species control — works best paired with mulching.',
 };
 
+export const SERVICE_IMAGES: Record<ServiceType, string> = {
+  forestry_mulching: '/images/services/mulching.jpg',
+  block_clearing: '/images/services/land-clearing.jpg',
+  firebreak: '/images/services/firebreak.jpg',
+  vegetation_management: '/images/services/vegetation-management.png',
+  weed_control: '/images/services/weed-control.jpg',
+};
+
+export const AREA_OPTIONS: AreaOption[] = [
+  { key: '500_2000',  label: '500 – 2,000 sqm', description: 'A large suburban or semi-rural block' },
+  { key: '2000_1ha',  label: '2,000 sqm – 1 ha', description: 'A small rural allotment' },
+  { key: '1ha_5ha',   label: '1 ha – 5 ha',       description: 'A medium-sized rural property' },
+  { key: '5ha_plus',  label: '5 ha +',             description: 'A large landholding or station' },
+];
+
+export const TERRAIN_OPTIONS: TerrainOption[] = [
+  {
+    key: 'flat',
+    label: 'Flat',
+    description: 'Level ground, easy machine access',
+    image: '/images/quote/terrain-flat.png',
+  },
+  {
+    key: 'undulating',
+    label: 'Undulating',
+    description: 'Rolling or sloped, manageable terrain',
+    image: '/images/quote/terrain-undulating.png',
+  },
+  {
+    key: 'steep',
+    label: 'Steep',
+    description: 'Significant incline or rough ground',
+    image: '/images/quote/terrain-steep.png',
+  },
+  {
+    key: 'restricted',
+    label: 'Restricted',
+    description: 'Obstacles, narrow access or tight entry',
+    image: '/images/quote/terrain-restricted.png',
+  },
+];
+
 export const SERVICE_FIELDS: Record<ServiceType, QuoteField[]> = {
   forestry_mulching: [
     {
@@ -43,9 +98,9 @@ export const SERVICE_FIELDS: Record<ServiceType, QuoteField[]> = {
       label: 'Vegetation density',
       type: 'radio',
       options: [
-        { value: 'light', label: 'Light — grasses, low scrub' },
+        { value: 'light',  label: 'Light — grasses, low scrub' },
         { value: 'medium', label: 'Medium — established scrub, regrowth' },
-        { value: 'heavy', label: 'Heavy — dense vegetation, thick stems' },
+        { value: 'heavy',  label: 'Heavy — dense vegetation, thick stems' },
       ],
       required: true,
     },
@@ -55,18 +110,7 @@ export const SERVICE_FIELDS: Record<ServiceType, QuoteField[]> = {
       type: 'radio',
       options: [
         { value: 'yes', label: 'Yes' },
-        { value: 'no', label: 'No' },
-      ],
-      required: true,
-    },
-    {
-      key: 'access_type',
-      label: 'Site access',
-      type: 'radio',
-      options: [
-        { value: 'open', label: 'Open and flat' },
-        { value: 'restricted', label: 'Restricted (gates, narrow entry, obstacles)' },
-        { value: 'steep', label: 'Steep or uneven terrain' },
+        { value: 'no',  label: 'No' },
       ],
       required: true,
     },
@@ -77,9 +121,9 @@ export const SERVICE_FIELDS: Record<ServiceType, QuoteField[]> = {
       label: 'Vegetation density',
       type: 'radio',
       options: [
-        { value: 'light', label: 'Light — grasses, low scrub' },
+        { value: 'light',  label: 'Light — grasses, low scrub' },
         { value: 'medium', label: 'Medium — established scrub, regrowth' },
-        { value: 'heavy', label: 'Heavy — dense vegetation, thick stems' },
+        { value: 'heavy',  label: 'Heavy — dense vegetation, thick stems' },
       ],
       required: true,
     },
@@ -89,18 +133,7 @@ export const SERVICE_FIELDS: Record<ServiceType, QuoteField[]> = {
       type: 'radio',
       options: [
         { value: 'yes', label: 'Yes' },
-        { value: 'no', label: 'No' },
-      ],
-      required: true,
-    },
-    {
-      key: 'access_type',
-      label: 'Site access',
-      type: 'radio',
-      options: [
-        { value: 'open', label: 'Open and flat' },
-        { value: 'restricted', label: 'Restricted (gates, narrow entry, obstacles)' },
-        { value: 'steep', label: 'Steep or uneven terrain' },
+        { value: 'no',  label: 'No' },
       ],
       required: true,
     },
@@ -109,10 +142,10 @@ export const SERVICE_FIELDS: Record<ServiceType, QuoteField[]> = {
       label: 'What is the block being cleared for?',
       type: 'radio',
       options: [
-        { value: 'house_block', label: 'House block / residential build' },
+        { value: 'house_block',  label: 'House block / residential build' },
         { value: 'development', label: 'Development / subdivision' },
-        { value: 'farmland', label: 'Farmland / rural use' },
-        { value: 'other', label: 'Other' },
+        { value: 'farmland',    label: 'Farmland / rural use' },
+        { value: 'other',       label: 'Other' },
       ],
       required: true,
     },
@@ -135,23 +168,12 @@ export const SERVICE_FIELDS: Record<ServiceType, QuoteField[]> = {
       required: true,
     },
     {
-      key: 'terrain',
-      label: 'Terrain',
-      type: 'radio',
-      options: [
-        { value: 'flat', label: 'Flat' },
-        { value: 'undulating', label: 'Undulating / rolling' },
-        { value: 'steep', label: 'Steep' },
-      ],
-      required: true,
-    },
-    {
       key: 'existing_firebreak',
       label: 'Is this an existing firebreak requiring maintenance?',
       type: 'radio',
       options: [
         { value: 'yes', label: 'Yes — existing firebreak' },
-        { value: 'no', label: 'No — new construction' },
+        { value: 'no',  label: 'No — new construction' },
       ],
       required: true,
     },
@@ -162,10 +184,10 @@ export const SERVICE_FIELDS: Record<ServiceType, QuoteField[]> = {
       label: 'Area type',
       type: 'radio',
       options: [
-        { value: 'council', label: 'Council land' },
+        { value: 'council',       label: 'Council land' },
         { value: 'road_corridor', label: 'Road corridor' },
-        { value: 'commercial', label: 'Commercial property' },
-        { value: 'rural', label: 'Rural / private land' },
+        { value: 'commercial',    label: 'Commercial property' },
+        { value: 'rural',         label: 'Rural / private land' },
       ],
       required: true,
     },
@@ -174,7 +196,7 @@ export const SERVICE_FIELDS: Record<ServiceType, QuoteField[]> = {
       label: 'Frequency',
       type: 'radio',
       options: [
-        { value: 'one_off', label: 'One-off job' },
+        { value: 'one_off',  label: 'One-off job' },
         { value: 'ongoing', label: 'Ongoing / scheduled maintenance' },
       ],
       required: true,
@@ -184,9 +206,9 @@ export const SERVICE_FIELDS: Record<ServiceType, QuoteField[]> = {
       label: 'Current vegetation density',
       type: 'radio',
       options: [
-        { value: 'light', label: 'Light — grasses, low scrub' },
+        { value: 'light',  label: 'Light — grasses, low scrub' },
         { value: 'medium', label: 'Medium — established scrub, regrowth' },
-        { value: 'heavy', label: 'Heavy — dense vegetation, thick stems' },
+        { value: 'heavy',  label: 'Heavy — dense vegetation, thick stems' },
       ],
       required: true,
     },
@@ -205,7 +227,7 @@ export const SERVICE_FIELDS: Record<ServiceType, QuoteField[]> = {
       type: 'radio',
       options: [
         { value: 'yes', label: 'Yes — part of a mulching job' },
-        { value: 'no', label: 'No — weed control only' },
+        { value: 'no',  label: 'No — weed control only' },
       ],
       required: true,
     },
