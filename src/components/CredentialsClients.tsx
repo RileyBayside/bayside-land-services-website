@@ -21,13 +21,13 @@ export function CredentialsClients() {
         <FadeIn delay={0.1}>
           <div className="flex flex-wrap items-center justify-center gap-16">
             {CLIENTS.map((client) => (
-              <div key={client.name}>
+              <div key={client.name} className="flex h-24 w-44 items-center justify-center">
                 <Image
                   src={client.logo}
                   alt={client.name}
                   width={200}
                   height={100}
-                  className="h-24 w-auto object-contain"
+                  className="max-h-full max-w-full object-contain"
                 />
               </div>
             ))}
