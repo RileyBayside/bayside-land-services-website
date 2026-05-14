@@ -24,7 +24,6 @@ export function AddressAutocomplete({ onChange, placeholder }: AddressAutocomple
 
       const el = new google.maps.places.PlaceAutocompleteElement({
         includedRegionCodes: ['au'],
-        includedPrimaryTypes: ['address'],
         placeholder: placeholder ?? null,
       });
 
