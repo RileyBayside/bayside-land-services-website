@@ -14,9 +14,9 @@ interface PageHeroProps {
 export function PageHero({ label, heading, subheading, ctaLabel, ctaHref, backgroundImage }: PageHeroProps) {
   if (backgroundImage) {
     return (
-      <section className="flex min-h-[55vh] bg-[#111111] pt-[72px]">
-        {/* Left — photo (3/5) */}
-        <div className="relative hidden w-3/5 md:block">
+      <section className="relative overflow-hidden bg-[#111111] pt-[72px] min-h-[55vh] flex items-center">
+        {/* Photo fills the left half of the viewport */}
+        <div className="absolute inset-y-0 left-0 hidden w-1/2 md:block">
           <Image
             src={backgroundImage}
             alt=""
@@ -24,27 +24,30 @@ export function PageHero({ label, heading, subheading, ctaLabel, ctaHref, backgr
             className="object-cover brightness-[0.45] saturate-[0.85]"
             priority
           />
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(17,17,17,0)_70%,rgba(17,17,17,0.9)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(17,17,17,0)_60%,rgba(17,17,17,1)_100%)]" />
         </div>
 
-        {/* Right — text (2/5) */}
-        <div className="flex w-full items-center bg-[#111111] px-10 py-16 md:w-2/5 md:px-12">
-          <FadeIn>
-            <div className="text-xs font-bold tracking-[3px] uppercase text-brand-light">{label}</div>
-            <div className="mt-3.5 mb-[22px] h-[3px] w-12 rounded-sm bg-brand" />
-            <h1 className="mb-5 font-heading text-[clamp(28px,3.5vw,48px)] font-bold leading-[1.1] text-white">
-              {heading}
-            </h1>
-            <p className="mb-8 text-base leading-[1.75] text-white/60">{subheading}</p>
-            {ctaLabel && ctaHref && (
-              <Link
-                href={ctaHref}
-                className="inline-flex items-center gap-2 rounded-[5px] bg-brand px-[28px] py-[12px] text-[14px] font-semibold text-white transition-all duration-250 hover:-translate-y-0.5 hover:bg-brand-dark hover:shadow-[0_8px_20px_rgba(74,124,47,0.25)]"
-              >
-                {ctaLabel}
-              </Link>
-            )}
-          </FadeIn>
+        {/* Same max-width container as ServicesDetail — keeps text columns aligned */}
+        <div className="relative mx-auto w-full max-w-[1140px] px-6 grid grid-cols-1 gap-12 md:grid-cols-2">
+          <div className="hidden md:block" />
+          <div className="py-16">
+            <FadeIn>
+              <div className="text-xs font-bold tracking-[3px] uppercase text-brand-light">{label}</div>
+              <div className="mt-3.5 mb-[22px] h-[3px] w-12 rounded-sm bg-brand" />
+              <h1 className="mb-5 font-heading text-[clamp(28px,3.5vw,48px)] font-bold leading-[1.1] text-white">
+                {heading}
+              </h1>
+              <p className="mb-8 text-base leading-[1.75] text-white/60">{subheading}</p>
+              {ctaLabel && ctaHref && (
+                <Link
+                  href={ctaHref}
+                  className="inline-flex items-center gap-2 rounded-[5px] bg-brand px-[28px] py-[12px] text-[14px] font-semibold text-white transition-all duration-250 hover:-translate-y-0.5 hover:bg-brand-dark hover:shadow-[0_8px_20px_rgba(74,124,47,0.25)]"
+                >
+                  {ctaLabel}
+                </Link>
+              )}
+            </FadeIn>
+          </div>
         </div>
       </section>
     );
