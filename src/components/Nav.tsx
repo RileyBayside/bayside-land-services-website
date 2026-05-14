@@ -19,6 +19,9 @@ export function Nav() {
   const router = useRouter();
   const isHome = pathname === '/';
   const isExpanded = !scrolled && isHome;
+  const hasPhotoHero = pathname === '/services';
+  // On pages with a photo hero the logo lives in the hero image; hide nav logo until scrolled
+  const navLogoVisible = !hasPhotoHero || scrolled;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -63,7 +66,8 @@ export function Nav() {
       >
         <button
           onClick={handleLogoClick}
-          className="cursor-pointer border-none bg-transparent p-0"
+          className="cursor-pointer border-none bg-transparent p-0 transition-opacity duration-300"
+          style={{ opacity: navLogoVisible ? 1 : 0, pointerEvents: navLogoVisible ? 'auto' : 'none' }}
         >
           <Image
             src={!scrolled ? '/images/logo-hero.png' : '/images/logo-transparent.png'}

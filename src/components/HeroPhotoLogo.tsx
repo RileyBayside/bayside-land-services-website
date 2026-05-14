@@ -12,16 +12,17 @@ export function HeroPhotoLogo() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Shrinks from 180px → 90px over the first 250px of scroll
-  const width = Math.max(90, 180 - (scrollY / 250) * 90);
+  // Fade out over first 80px of scroll — matches when nav logo fades in
+  const opacity = Math.max(0, 1 - scrollY / 80);
 
   return (
     <div
-      className="absolute z-10 transition-[width] duration-100 ease-out"
+      className="absolute z-10 pointer-events-none"
       style={{
-        width,
-        right: '12%',
-        top: '50%',
+        opacity,
+        transition: 'opacity 150ms ease-out',
+        right: '10%',
+        top: '38%',
         transform: 'translateY(-50%)',
       }}
     >
@@ -30,7 +31,7 @@ export function HeroPhotoLogo() {
         alt="Bayside Land Services"
         width={504}
         height={169}
-        className="w-full h-auto opacity-90 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
+        className="h-36 w-auto drop-shadow-[0_2px_20px_rgba(0,0,0,0.9)]"
         priority
       />
     </div>
