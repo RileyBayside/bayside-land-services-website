@@ -29,6 +29,7 @@ export async function POST(request: Request) {
       contact_email: body.contact_email,
       contact_phone: body.contact_phone,
       property_address: body.property_address,
+      property_size: '',
       property_area: body.property_area,
       terrain: body.terrain,
       job_details: body.job_details,
