@@ -50,11 +50,11 @@ export const SERVICE_DESCRIPTIONS: Record<ServiceType, string> = {
 };
 
 export const SERVICE_IMAGES: Record<ServiceType, string> = {
-  forestry_mulching: '/images/services/mulching-new.png',
-  block_clearing: '/images/services/block-clearing-new.png',
-  firebreak: '/images/services/firebreak-new.png',
-  vegetation_management: '/images/services/vegetation-management-new.png',
-  weed_control: '/images/services/weed-control-new.png',
+  forestry_mulching: '/images/services/mulching-new.jpg',
+  block_clearing: '/images/services/block-clearing-new.jpg',
+  firebreak: '/images/services/firebreak-new.jpg',
+  vegetation_management: '/images/services/vegetation-management-new.jpg',
+  weed_control: '/images/services/weed-control-new.jpg',
 };
 
 export const AREA_OPTIONS: AreaOption[] = [
@@ -69,25 +69,25 @@ export const TERRAIN_OPTIONS: TerrainOption[] = [
     key: 'flat',
     label: 'Flat',
     description: 'Level ground, easy machine access',
-    image: '/images/quote/terrain-flat.png',
+    image: '/images/quote/terrain-flat.jpg',
   },
   {
     key: 'undulating',
     label: 'Undulating',
     description: 'Rolling or sloped, manageable terrain',
-    image: '/images/quote/terrain-undulating.png',
+    image: '/images/quote/terrain-undulating.jpg',
   },
   {
     key: 'steep',
     label: 'Steep',
     description: 'Significant incline or rough ground',
-    image: '/images/quote/terrain-steep.png',
+    image: '/images/quote/terrain-steep.jpg',
   },
   {
     key: 'restricted',
     label: 'Restricted',
     description: 'Obstacles, narrow access or tight entry',
-    image: '/images/quote/terrain-restricted.png',
+    image: '/images/quote/terrain-restricted.jpg',
   },
 ];
 
