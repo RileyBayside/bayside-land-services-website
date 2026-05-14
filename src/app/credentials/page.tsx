@@ -2,9 +2,8 @@ import type { Metadata } from 'next';
 import { Nav } from '@/components/Nav';
 import { PageHero } from '@/components/PageHero';
 import { CredentialsISO } from '@/components/CredentialsISO';
-import { CredentialsAccreditations } from '@/components/CredentialsAccreditations';
-import { CredentialsClients } from '@/components/CredentialsClients';
 import { CredentialsWhy } from '@/components/CredentialsWhy';
+import { CredentialsClients } from '@/components/CredentialsClients';
 import { PageCTA } from '@/components/PageCTA';
 import { Footer } from '@/components/Footer';
 
@@ -25,9 +24,8 @@ export default function CredentialsPage() {
           subheading="Operating to the highest standard across safety, environment, and quality — independently audited and certified."
         />
         <CredentialsISO />
-        <CredentialsAccreditations />
-        <CredentialsClients />
         <CredentialsWhy />
+        <CredentialsClients />
         <PageCTA heading="Work with a certified contractor." />
       </main>
       <Footer />

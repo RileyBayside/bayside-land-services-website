@@ -58,7 +58,7 @@ function ServiceVideoCrossfade({ src }: { src: string }) {
   const videoClass = 'absolute inset-0 h-full w-full object-cover';
   return (
     <div className="relative h-[340px] w-full">
-      <video ref={refA} src={src} muted playsInline className={videoClass} />
+      <video ref={refA} src={src} autoPlay muted playsInline className={videoClass} />
       <video ref={refB} src={src} muted playsInline className={videoClass} style={{ opacity: 0 }} />
     </div>
   );
