@@ -12,23 +12,16 @@ export function PropertyStep({ data, onChange }: PropertyStepProps) {
   return (
     <div className="flex flex-col gap-4">
       <h2 className="font-heading text-xl font-bold text-black">The property</h2>
-      <input
-        className={inputClass}
-        placeholder="Street address or suburb *"
-        required
-        value={data.property_address}
-        onChange={(e) => onChange({ property_address: e.target.value })}
-      />
       <div>
         <input
           className={inputClass}
-          placeholder="Approximate size (e.g. 2 ha, 500 sqm, not sure) *"
+          placeholder="Street address or suburb *"
           required
-          value={data.property_size}
-          onChange={(e) => onChange({ property_size: e.target.value })}
+          value={data.property_address}
+          onChange={(e) => onChange({ property_address: e.target.value })}
         />
         <p className="mt-1.5 text-xs text-[#999]">
-          An estimate is fine — we use this to give you a ballpark, not a fixed price.
+          General location is fine if you don&apos;t have the exact address handy.
         </p>
       </div>
     </div>
