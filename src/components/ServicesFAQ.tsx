@@ -25,7 +25,7 @@ export function ServicesFAQ() {
 
         <div className="flex flex-col gap-3">
           {FAQS.map((faq, i) => (
-            <FadeIn key={i} delay={i * 0.04}>
+            <FadeIn key={faq.q} delay={i * 0.04}>
               <div className="overflow-hidden rounded-[8px] border border-[#e5e5e3] bg-white">
                 <button
                   onClick={() => setOpen(open === i ? null : i)}
