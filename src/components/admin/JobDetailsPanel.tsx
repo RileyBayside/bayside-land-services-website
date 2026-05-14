@@ -1,6 +1,13 @@
 import type { Submission } from '@/types/quote';
-import { SERVICE_LABELS } from '@/data/quote-fields';
+import { SERVICE_LABELS, AREA_OPTIONS, TERRAIN_OPTIONS } from '@/data/quote-fields';
 import { StatusBadge } from './StatusBadge';
+
+const AREA_LABEL: Record<string, string> = Object.fromEntries(
+  AREA_OPTIONS.map((o) => [o.key, o.label]),
+);
+const TERRAIN_LABEL: Record<string, string> = Object.fromEntries(
+  TERRAIN_OPTIONS.map((o) => [o.key, o.label]),
+);
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
@@ -24,6 +31,14 @@ export function JobDetailsPanel({ submission }: { submission: Submission }) {
     day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit',
   });
 
+  const areaDisplay = submission.property_area
+    ? (AREA_LABEL[submission.property_area] ?? submission.property_area)
+    : submission.property_size;
+
+  const terrainDisplay = submission.terrain
+    ? (TERRAIN_LABEL[submission.terrain] ?? submission.terrain)
+    : null;
+
   return (
     <div className="rounded-[10px] border border-[#e5e5e3] bg-white p-6">
       <div className="mb-5 flex items-center justify-between">
@@ -41,7 +56,8 @@ export function JobDetailsPanel({ submission }: { submission: Submission }) {
       <div className="mb-5">
         <div className="mb-2 text-xs font-semibold uppercase tracking-[2px] text-[#999]">Property</div>
         <Row label="Address" value={submission.property_address} />
-        <Row label="Size" value={submission.property_size} />
+        {areaDisplay && <Row label="Area" value={areaDisplay} />}
+        {terrainDisplay && <Row label="Terrain" value={terrainDisplay} />}
       </div>
 
       <div className="mb-5">
