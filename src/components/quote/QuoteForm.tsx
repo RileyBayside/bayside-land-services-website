@@ -15,20 +15,18 @@ import { ConfirmStep } from './steps/ConfirmStep';
 
 // Scrolls up to targetY with a natural ease-out deceleration.
 // Only fires when the user is already below the target (no jarring downward jumps).
-function smoothScrollTo(targetY: number, duration = 700) {
+function smoothScrollTo(targetY: number, duration = 420) {
   const startY = window.scrollY;
   if (startY <= targetY) return;
   const distance = targetY - startY;
   let startTime: number | null = null;
 
-  function easeInOutQuart(t: number) {
-    return t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
-  }
-
   function tick(now: number) {
     if (startTime === null) startTime = now;
     const t = Math.min((now - startTime) / duration, 1);
-    window.scrollTo(0, startY + distance * easeInOutQuart(t));
+    // easeOutQuart — starts immediately at full speed, decelerates into place
+    const eased = 1 - Math.pow(1 - t, 4);
+    window.scrollTo(0, startY + distance * eased);
     if (t < 1) requestAnimationFrame(tick);
   }
 
