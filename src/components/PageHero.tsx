@@ -22,7 +22,7 @@ export function PageHero({ label, heading, subheading, ctaLabel, ctaHref, backgr
             src={backgroundImage}
             alt=""
             fill
-            className="object-cover brightness-[0.45] saturate-[0.85] -scale-x-100"
+            className="object-cover brightness-[0.45] saturate-[0.85]"
             priority
           />
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(17,17,17,0)_60%,rgba(17,17,17,1)_100%)]" />
