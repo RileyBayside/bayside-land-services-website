@@ -15,7 +15,7 @@ export function PageCTA({ heading = 'Ready to get started?' }: PageCTAProps) {
           </h2>
           <div className="mt-3 flex flex-wrap justify-center gap-6 md:justify-start">
             <a
-              href={`tel:${BUSINESS.phone}`}
+              href={`tel:${BUSINESS.phone.replace(/\s/g, '')}`}
               className="text-sm text-white/80 transition-colors hover:text-white"
             >
               {BUSINESS.phone}

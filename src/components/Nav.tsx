@@ -18,6 +18,7 @@ export function Nav() {
   const pathname = usePathname();
   const router = useRouter();
   const isHome = pathname === '/';
+  const isExpanded = !scrolled && isHome;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -57,7 +58,7 @@ export function Nav() {
     >
       <div
         className={`mx-auto flex max-w-[1140px] items-center justify-between px-6 transition-all duration-300 ${
-          scrolled ? 'h-[68px]' : 'h-[160px]'
+          isExpanded ? 'h-[160px]' : 'h-[68px]'
         }`}
       >
         <button
@@ -65,11 +66,11 @@ export function Nav() {
           className="cursor-pointer border-none bg-transparent p-0"
         >
           <Image
-            src={scrolled ? '/images/logo-transparent.png' : '/images/logo-hero.png'}
+            src={!scrolled ? '/images/logo-hero.png' : '/images/logo-transparent.png'}
             alt="Bayside Land Services"
             width={504}
             height={169}
-            className={`w-auto transition-all duration-300 ${scrolled ? 'h-9' : 'h-[144px]'}`}
+            className={`w-auto transition-all duration-300 ${isExpanded ? 'h-[144px]' : 'h-9'}`}
           />
         </button>
 
