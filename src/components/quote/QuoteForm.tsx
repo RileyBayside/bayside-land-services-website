@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { Check } from 'lucide-react';
 import type { QuoteFormData } from '@/types/quote';
 import { SERVICE_FIELDS } from '@/data/quote-fields';
@@ -12,26 +12,6 @@ import { ServiceDetailsStep } from './steps/ServiceDetailsStep';
 import { AreaStep } from './steps/AreaStep';
 import { TerrainStep } from './steps/TerrainStep';
 import { ConfirmStep } from './steps/ConfirmStep';
-
-// Scrolls up to targetY with a natural ease-out deceleration.
-// Only fires when the user is already below the target (no jarring downward jumps).
-function smoothScrollTo(targetY: number, duration = 420) {
-  const startY = window.scrollY;
-  if (startY <= targetY) return;
-  const distance = targetY - startY;
-  let startTime: number | null = null;
-
-  function tick(now: number) {
-    if (startTime === null) startTime = now;
-    const t = Math.min((now - startTime) / duration, 1);
-    // easeOutQuart — starts immediately at full speed, decelerates into place
-    const eased = 1 - Math.pow(1 - t, 4);
-    window.scrollTo(0, startY + distance * eased);
-    if (t < 1) requestAnimationFrame(tick);
-  }
-
-  requestAnimationFrame(tick);
-}
 
 const STEPS = ['Contact', 'Property', 'Service', 'Details', 'Area', 'Terrain', 'Confirm'];
 const TOTAL = STEPS.length;
@@ -75,20 +55,46 @@ export function QuoteForm() {
   const [step, setStep] = useState(1);
   const [form, setForm] = useState<QuoteFormData>(EMPTY_FORM);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-  const isMounted = useRef(false);
+  const rafRef = useRef<number | null>(null);
 
-  useEffect(() => {
-    if (!isMounted.current) {
-      isMounted.current = true;
-      return;
+  // Called synchronously inside click handlers — before React re-renders — so the
+  // scroll start position is captured cleanly with no layout-shift interference.
+  // Cancels any in-flight animation first so double-clicks don't stutter.
+  function scrollUp() {
+    const TARGET = 110;
+    const DURATION = 380;
+
+    if (window.scrollY <= TARGET) return;
+
+    if (rafRef.current !== null) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
     }
-    smoothScrollTo(110);
-  }, [step]);
+
+    const startY = window.scrollY;
+    const distance = TARGET - startY;
+    let startTime: number | null = null;
+
+    function tick(now: number) {
+      if (startTime === null) startTime = now;
+      const t = Math.min((now - startTime) / DURATION, 1);
+      // easeOutExpo — ultra-fast start, feathers to a stop with no jank
+      const eased = t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+      window.scrollTo(0, startY + distance * eased);
+      if (t < 1) {
+        rafRef.current = requestAnimationFrame(tick);
+      } else {
+        rafRef.current = null;
+      }
+    }
+
+    rafRef.current = requestAnimationFrame(tick);
+  }
 
   const update = (updates: Partial<QuoteFormData>) => setForm((f) => ({ ...f, ...updates }));
-  const next = () => setStep((s) => Math.min(s + 1, TOTAL));
-  const back = () => setStep((s) => Math.max(s - 1, 1));
-  const goTo = (s: number) => setStep(s);
+  const next = () => { scrollUp(); setStep((s) => Math.min(s + 1, TOTAL)); };
+  const back = () => { scrollUp(); setStep((s) => Math.max(s - 1, 1)); };
+  const goTo = (s: number) => { scrollUp(); setStep(s); };
 
   const submit = async () => {
     setStatus('submitting');

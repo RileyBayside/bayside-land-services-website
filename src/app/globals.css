@@ -23,6 +23,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-anchor: none; /* prevent browser scroll-anchoring from fighting RAF animations */
 }
 
 body {
