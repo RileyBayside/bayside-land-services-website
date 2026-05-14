@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { FadeIn } from './FadeIn';
+import { HeroPhotoLogo } from './HeroPhotoLogo';
 
 interface PageHeroProps {
   label: string;
@@ -25,6 +26,7 @@ export function PageHero({ label, heading, subheading, ctaLabel, ctaHref, backgr
             priority
           />
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(17,17,17,0)_60%,rgba(17,17,17,1)_100%)]" />
+          <HeroPhotoLogo />
         </div>
 
         {/* Same max-width container as ServicesDetail — keeps text columns aligned */}
