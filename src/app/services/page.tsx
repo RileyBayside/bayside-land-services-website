@@ -23,7 +23,7 @@ export default function ServicesPage() {
           subheading="Forestry mulching, land clearing, firebreak construction, and vegetation management across South-East Queensland."
           ctaLabel="Get a Quote"
           ctaHref="/quote"
-          backgroundImage="/asv-mulch.png"
+          backgroundImage="/images/services/takeuchi.png"
         />
         <ServicesDetail />
         <ServicesFAQ />

@@ -13,7 +13,7 @@ export const SERVICES = [
     title: 'Forestry Mulching',
     description:
       'We take scrub, regrowth, and dense vegetation and grind it into mulch on the spot — one pass, nothing to haul away, no burning. Faster and cleaner than traditional clearing, and leaves the ground covered rather than bare.',
-    image: '/images/services/mulching-asv.png',
+    image: '/images/services/takeuchi.png',
   },
   {
     title: 'Block & Land Clearing',
@@ -80,7 +80,7 @@ export const ABOUT = {
 export const SERVICE_DETAILS = [
   {
     title: 'Forestry Mulching',
-    image: '/images/services/mulching-asv.png',
+    image: '/images/services/takeuchi.png',
     video: '/images/services/mulching-video.mp4',
     description:
       'We take scrub, regrowth, and dense vegetation and grind it into mulch on the spot — one pass, nothing to haul away, no burning. The machinery works through heavy timber and thick understorey in a single pass, leaving the ground covered with a layer of fine mulch that protects the soil and suppresses regrowth. Faster and cleaner than traditional clearing methods.',
