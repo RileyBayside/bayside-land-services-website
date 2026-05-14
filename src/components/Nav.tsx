@@ -95,12 +95,12 @@ export function Nav() {
               </button>
             );
           })}
-          <button
-            onClick={() => handleAnchor('contact')}
+          <Link
+            href="/quote"
             className="inline-flex cursor-pointer items-center gap-2 rounded-[5px] border-none bg-brand px-[22px] py-[9px] text-[13px] font-semibold text-white transition-all duration-250 hover:-translate-y-0.5 hover:bg-brand-dark hover:shadow-[0_8px_20px_rgba(74,124,47,0.25)]"
           >
             Get a Quote
-          </button>
+          </Link>
         </div>
 
         {/* Mobile hamburger */}
@@ -141,12 +141,13 @@ export function Nav() {
               </button>
             );
           })}
-          <button
-            onClick={() => handleAnchor('contact')}
+          <Link
+            href="/quote"
+            onClick={() => setMenuOpen(false)}
             className="mt-2.5 mb-2 inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-[5px] border-none bg-brand px-8 py-[15px] text-[15px] font-semibold text-white transition-all duration-250 hover:bg-brand-dark"
           >
             Get a Quote
-          </button>
+          </Link>
         </div>
       )}
     </nav>

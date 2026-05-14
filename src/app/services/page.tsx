@@ -22,7 +22,7 @@ export default function ServicesPage() {
           heading="Our Services"
           subheading="Forestry mulching, land clearing, firebreak construction, and vegetation management across South-East Queensland."
           ctaLabel="Get a Quote"
-          ctaHref="/#contact"
+          ctaHref="/quote"
         />
         <ServicesDetail />
         <ServicesFAQ />

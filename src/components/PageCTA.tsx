@@ -29,7 +29,7 @@ export function PageCTA({ heading = 'Ready to get started?' }: PageCTAProps) {
           </div>
         </div>
         <Link
-          href="/#contact"
+          href="/quote"
           className="inline-flex shrink-0 items-center gap-2 rounded-[5px] bg-white px-[28px] py-[12px] text-[14px] font-semibold text-brand-dark transition-all duration-250 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(0,0,0,0.15)]"
         >
           Get a Quote
