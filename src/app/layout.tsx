@@ -34,6 +34,10 @@ export const metadata: Metadata = {
     'Queensland',
     'Bayside Land Services',
   ],
+  icons: {
+    icon: '/images/logo-transparent.png',
+    apple: '/images/logo-transparent.png',
+  },
   openGraph: {
     title: 'Bayside Land Services',
     description:
@@ -41,6 +45,14 @@ export const metadata: Metadata = {
     siteName: 'Bayside Land Services',
     locale: 'en_AU',
     type: 'website',
+    images: [
+      {
+        url: '/images/logo.png',
+        width: 800,
+        height: 600,
+        alt: 'Bayside Land Services',
+      },
+    ],
   },
 };
 
