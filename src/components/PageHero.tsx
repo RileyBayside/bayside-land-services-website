@@ -16,13 +16,15 @@ export function PageHero({ label, heading, subheading, ctaLabel, ctaHref, backgr
     <section className="relative overflow-hidden bg-[#111111] px-6 pb-24 pt-40 min-h-[55vh] flex items-center">
       {backgroundImage ? (
         <>
-          <Image
-            src={backgroundImage}
-            alt=""
-            fill
-            className="object-cover brightness-[0.45] saturate-[0.85]"
-            priority
-          />
+          <div className="absolute inset-[4%]">
+            <Image
+              src={backgroundImage}
+              alt=""
+              fill
+              className="object-cover brightness-[0.45] saturate-[0.85]"
+              priority
+            />
+          </div>
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,17,17,0.55)_0%,rgba(17,17,17,0.15)_50%,rgba(17,17,17,0.7)_100%)]" />
         </>
       ) : (
