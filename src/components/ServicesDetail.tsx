@@ -9,12 +9,12 @@ export function ServicesDetail() {
     <section className="bg-white px-6 py-24">
       <div className="mx-auto flex max-w-[1140px] flex-col gap-24">
         {SERVICE_DETAILS.map((service, i) => {
-          const isEven = i % 2 === 1;
+          const isOdd = i % 2 === 1;
           return (
             <FadeIn key={service.title}>
               <div
                 className={`grid grid-cols-1 items-center gap-12 md:grid-cols-2 ${
-                  isEven ? 'md:[&>*:first-child]:order-2' : ''
+                  isOdd ? 'md:[&>*:first-child]:order-2' : ''
                 }`}
               >
                 <div className="overflow-hidden rounded-[10px]">
