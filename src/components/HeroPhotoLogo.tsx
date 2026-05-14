@@ -23,7 +23,7 @@ export function HeroPhotoLogo() {
         transition: 'opacity 150ms ease-out',
         right: '10%',
         top: '38%',
-        transform: 'translateY(calc(-50% - 200px))',
+        transform: 'translateY(calc(-50% - 100px))',
       }}
     >
       <Image
