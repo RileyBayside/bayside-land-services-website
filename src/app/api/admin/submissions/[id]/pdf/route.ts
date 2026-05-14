@@ -31,7 +31,12 @@ export async function GET(
     }
   }
 
-  const pdfBuffer = await generateQuotePdf(sub, amount, notes);
+  let pdfBuffer: Buffer;
+  try {
+    pdfBuffer = await generateQuotePdf(sub, amount, notes);
+  } catch {
+    return NextResponse.json({ error: 'PDF generation failed' }, { status: 500 });
+  }
   const quoteRef = formatQuoteRef(sub.quote_number!, sub.created_at);
 
   return new NextResponse(new Uint8Array(pdfBuffer), {

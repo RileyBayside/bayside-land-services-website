@@ -2,7 +2,9 @@ import { Resend } from 'resend';
 import type { Submission } from '@/types/quote';
 import { SERVICE_LABELS } from '@/data/quote-fields';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY);
+}
 
 function esc(str: unknown): string {
   return String(str)
@@ -24,8 +26,8 @@ export async function sendNotificationEmail(submission: Submission) {
   const serviceName = SERVICE_LABELS[submission.service];
   const jobDetails = formatJobDetails(submission);
 
-  await resend.emails.send({
-    from: 'Bayside Land Services <quotes@baysideslashing.com.au>',
+  await getResend().emails.send({
+    from: process.env.RESEND_FROM ?? 'Bayside Land Services <onboarding@resend.dev>',
     to: process.env.ADMIN_EMAIL!,
     subject: `New Quote Request — ${serviceName} from ${submission.contact_name}`,
     html: `
@@ -60,8 +62,8 @@ export async function sendQuoteEmail(
   quoteRef: string,
   pdfBuffer: Buffer
 ) {
-  await resend.emails.send({
-    from: 'Bayside Land Services <quotes@baysideslashing.com.au>',
+  await getResend().emails.send({
+    from: process.env.RESEND_FROM ?? 'Bayside Land Services <onboarding@resend.dev>',
     to: submission.contact_email,
     subject: `Your Quote from Bayside Land Services — ${quoteRef}`,
     html: `

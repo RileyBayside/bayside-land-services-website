@@ -3,14 +3,17 @@ import {
   Page,
   Text,
   View,
+  Image,
   StyleSheet,
 } from '@react-pdf/renderer';
+import path from 'path';
 import type { Submission } from '@/types/quote';
-import { SERVICE_LABELS } from '@/data/quote-fields';
+import { SERVICE_LABELS, SERVICE_FIELDS } from '@/data/quote-fields';
 
 const styles = StyleSheet.create({
   page: { fontFamily: 'Helvetica', fontSize: 11, color: '#1C1C1C', padding: 48 },
   header: { marginBottom: 32 },
+  logo: { width: 180, marginBottom: 8 },
   company: { fontSize: 18, fontFamily: 'Helvetica-Bold', color: '#4A7C2F' },
   companyDetail: { fontSize: 10, color: '#777777', marginTop: 2 },
   divider: { borderBottomWidth: 1, borderBottomColor: '#e5e5e3', marginVertical: 20 },
@@ -52,15 +55,27 @@ export function QuoteDocument({
   quoteNotes,
   dateIssued,
 }: QuoteDocumentProps) {
-  const details = Object.entries(submission.job_details as unknown as Record<string, string | number>);
+  const rawDetails = submission.job_details as unknown as Record<string, string | number>;
   const serviceName = SERVICE_LABELS[submission.service] ?? submission.service;
+  const fields = SERVICE_FIELDS[submission.service] ?? [];
+
+  const resolveLabel = (fieldKey: string, rawValue: string | number): string => {
+    const field = fields.find((f) => f.key === fieldKey);
+    if (!field) return String(rawValue);
+    if (field.type === 'number' && field.unit) return `${rawValue} ${field.unit}`;
+    if (field.options) {
+      const opt = field.options.find((o) => o.value === String(rawValue));
+      return opt ? opt.label : String(rawValue);
+    }
+    return String(rawValue);
+  };
 
   return (
     <Document>
       <Page size="A4" style={styles.page}>
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.company}>Bayside Land Services</Text>
+          <Image style={styles.logo} src={path.join(process.cwd(), 'public/images/logo.png')} />
           <Text style={styles.companyDetail}>135 Railway Parade, Thorneside QLD 4158</Text>
           <Text style={styles.companyDetail}>(07) 3207 3510  ·  riley@baysideslashing.com.au</Text>
           <Text style={styles.companyDetail}>ABN: 71 056 487 060</Text>
@@ -98,12 +113,10 @@ export function QuoteDocument({
         {/* Service */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Service: {serviceName}</Text>
-          {details.map(([key, value]) => (
-            <View key={key} style={styles.row}>
-              <Text style={styles.label}>
-                {key.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())}
-              </Text>
-              <Text style={styles.value}>{String(value)}</Text>
+          {fields.filter((f) => rawDetails[f.key] !== undefined).map((field) => (
+            <View key={field.key} style={styles.row}>
+              <Text style={styles.label}>{field.label}</Text>
+              <Text style={styles.value}>{resolveLabel(field.key, rawDetails[field.key])}</Text>
             </View>
           ))}
         </View>
