@@ -50,11 +50,11 @@ export const SERVICE_DESCRIPTIONS: Record<ServiceType, string> = {
 };
 
 export const SERVICE_IMAGES: Record<ServiceType, string> = {
-  forestry_mulching: '/images/services/mulching.jpg',
-  block_clearing: '/images/services/land-clearing.jpg',
-  firebreak: '/images/services/firebreak.jpg',
-  vegetation_management: '/images/services/vegetation-management.png',
-  weed_control: '/images/services/weed-control.jpg',
+  forestry_mulching: '/images/services/mulching-new.png',
+  block_clearing: '/images/services/block-clearing-new.png',
+  firebreak: '/images/services/firebreak-new.png',
+  vegetation_management: '/images/services/vegetation-management-new.png',
+  weed_control: '/images/services/weed-control-new.png',
 };
 
 export const AREA_OPTIONS: AreaOption[] = [
