@@ -12,35 +12,58 @@ interface PageHeroProps {
 }
 
 export function PageHero({ label, heading, subheading, ctaLabel, ctaHref, backgroundImage }: PageHeroProps) {
+  if (backgroundImage) {
+    return (
+      <section className="flex min-h-[55vh] bg-[#111111] pt-[72px]">
+        {/* Left — photo (3/5) */}
+        <div className="relative hidden w-3/5 md:block">
+          <Image
+            src={backgroundImage}
+            alt=""
+            fill
+            className="object-cover brightness-[0.45] saturate-[0.85]"
+            priority
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(17,17,17,0)_70%,rgba(17,17,17,0.9)_100%)]" />
+        </div>
+
+        {/* Right — text (2/5) */}
+        <div className="flex w-full items-center bg-[#111111] px-10 py-16 md:w-2/5 md:px-12">
+          <FadeIn>
+            <div className="text-xs font-bold tracking-[3px] uppercase text-brand-light">{label}</div>
+            <div className="mt-3.5 mb-[22px] h-[3px] w-12 rounded-sm bg-brand" />
+            <h1 className="mb-5 font-heading text-[clamp(28px,3.5vw,48px)] font-bold leading-[1.1] text-white">
+              {heading}
+            </h1>
+            <p className="mb-8 text-base leading-[1.75] text-white/60">{subheading}</p>
+            {ctaLabel && ctaHref && (
+              <Link
+                href={ctaHref}
+                className="inline-flex items-center gap-2 rounded-[5px] bg-brand px-[28px] py-[12px] text-[14px] font-semibold text-white transition-all duration-250 hover:-translate-y-0.5 hover:bg-brand-dark hover:shadow-[0_8px_20px_rgba(74,124,47,0.25)]"
+              >
+                {ctaLabel}
+              </Link>
+            )}
+          </FadeIn>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section className="relative overflow-hidden bg-[#111111] px-6 pb-24 pt-40 min-h-[55vh] flex items-center">
-      {backgroundImage ? (
-        <>
-          <div className="absolute inset-[4%]">
-            <Image
-              src={backgroundImage}
-              alt=""
-              fill
-              className="object-cover brightness-[0.45] saturate-[0.85]"
-              priority
-            />
-          </div>
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,17,17,0.55)_0%,rgba(17,17,17,0.15)_50%,rgba(17,17,17,0.7)_100%)]" />
-        </>
-      ) : (
-        <svg
-          className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.03]"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <pattern id="page-hero-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#page-hero-grid)" />
-        </svg>
-      )}
-      <div className="relative mx-auto w-full max-w-[760px] text-center">
+    <section className="relative overflow-hidden bg-[#111111] px-6 pb-24 pt-40">
+      <svg
+        className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.03]"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <pattern id="page-hero-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#page-hero-grid)" />
+      </svg>
+      <div className="relative mx-auto max-w-[760px] text-center">
         <FadeIn>
           <div className="text-xs font-bold tracking-[3px] uppercase text-brand-light">{label}</div>
           <div className="mx-auto mt-3.5 mb-[22px] h-[3px] w-12 rounded-sm bg-brand" />
