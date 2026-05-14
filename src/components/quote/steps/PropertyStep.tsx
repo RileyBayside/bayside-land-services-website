@@ -13,12 +13,15 @@ export function PropertyStep({ data, onChange }: PropertyStepProps) {
   return (
     <div className="flex flex-col gap-4">
       <h2 className="font-heading text-xl font-bold text-black">The property</h2>
-      <div>
+      <div className="flex flex-col gap-1.5">
+        <label className="text-[13px] font-medium text-[#555]">
+          Property address <span className="text-red-500">*</span>
+        </label>
         <AddressAutocomplete
           onChange={(value) => onChange({ property_address: value })}
-          placeholder="Start typing an address *"
+          placeholder="Start typing an address…"
         />
-        <p className="mt-1.5 text-xs text-[#999]">
+        <p className="text-xs text-[#999]">
           Select from the suggestions or type a suburb if you don&apos;t have the full address.
         </p>
       </div>

@@ -12,29 +12,44 @@ export function ContactStep({ data, onChange }: ContactStepProps) {
   return (
     <div className="flex flex-col gap-4">
       <h2 className="font-heading text-xl font-bold text-black">Your details</h2>
-      <input
-        className={inputClass}
-        placeholder="Full name *"
-        required
-        value={data.contact_name}
-        onChange={(e) => onChange({ contact_name: e.target.value })}
-      />
-      <input
-        className={inputClass}
-        type="tel"
-        placeholder="Phone number *"
-        required
-        value={data.contact_phone}
-        onChange={(e) => onChange({ contact_phone: e.target.value })}
-      />
-      <input
-        className={inputClass}
-        type="email"
-        placeholder="Email address *"
-        required
-        value={data.contact_email}
-        onChange={(e) => onChange({ contact_email: e.target.value })}
-      />
+      <div className="flex flex-col gap-1.5">
+        <label className="text-[13px] font-medium text-[#555]">
+          Full name <span className="text-red-500">*</span>
+        </label>
+        <input
+          className={inputClass}
+          placeholder="e.g. Riley Briggs"
+          required
+          value={data.contact_name}
+          onChange={(e) => onChange({ contact_name: e.target.value })}
+        />
+      </div>
+      <div className="flex flex-col gap-1.5">
+        <label className="text-[13px] font-medium text-[#555]">
+          Phone number <span className="text-red-500">*</span>
+        </label>
+        <input
+          className={inputClass}
+          type="tel"
+          placeholder="e.g. 0412 345 678"
+          required
+          value={data.contact_phone}
+          onChange={(e) => onChange({ contact_phone: e.target.value })}
+        />
+      </div>
+      <div className="flex flex-col gap-1.5">
+        <label className="text-[13px] font-medium text-[#555]">
+          Email address <span className="text-red-500">*</span>
+        </label>
+        <input
+          className={inputClass}
+          type="email"
+          placeholder="e.g. riley@example.com"
+          required
+          value={data.contact_email}
+          onChange={(e) => onChange({ contact_email: e.target.value })}
+        />
+      </div>
     </div>
   );
 }
