@@ -7,17 +7,13 @@ interface ProgressBarProps {
 export function ProgressBar({ currentStep, totalSteps, labels }: ProgressBarProps) {
   return (
     <div className="mb-10">
-      <div className="mb-3 flex justify-between">
-        {labels.map((label, i) => (
-          <span
-            key={label}
-            className={`text-xs font-semibold tracking-[0.3px] ${
-              i + 1 <= currentStep ? 'text-brand' : 'text-[#bbb]'
-            }`}
-          >
-            {label}
-          </span>
-        ))}
+      <div className="mb-2 flex items-baseline justify-between">
+        <span className="text-[13px] font-semibold text-black">
+          {labels[currentStep - 1]}
+        </span>
+        <span className="text-xs text-[#aaa]">
+          Step {currentStep} of {totalSteps}
+        </span>
       </div>
       <div
         className="h-1.5 w-full rounded-full bg-[#e5e5e3]"

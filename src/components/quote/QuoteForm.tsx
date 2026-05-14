@@ -8,16 +8,21 @@ import { ProgressBar } from './ProgressBar';
 import { ContactStep } from './steps/ContactStep';
 import { PropertyStep } from './steps/PropertyStep';
 import { ServiceStep } from './steps/ServiceStep';
-import { JobDetailsStep } from './steps/JobDetailsStep';
+import { ServiceDetailsStep } from './steps/ServiceDetailsStep';
+import { AreaStep } from './steps/AreaStep';
+import { TerrainStep } from './steps/TerrainStep';
+import { ConfirmStep } from './steps/ConfirmStep';
 
-const STEPS = ['Contact', 'Property', 'Service', 'Details'];
+const STEPS = ['Contact', 'Property', 'Service', 'Details', 'Area', 'Terrain', 'Confirm'];
+const TOTAL = STEPS.length;
 
 const EMPTY_FORM: QuoteFormData = {
   contact_name: '',
   contact_email: '',
   contact_phone: '',
   property_address: '',
-  property_size: '',
+  property_area: '',
+  terrain: '',
   service: '',
   job_details: {},
   notes: '',
@@ -29,13 +34,20 @@ function isStepValid(step: number, data: QuoteFormData): boolean {
     const phoneOk = data.contact_phone.replace(/\D/g, '').length >= 8;
     return !!(data.contact_name && emailOk && phoneOk);
   }
-  if (step === 2) return !!(data.property_address && data.property_size);
+  if (step === 2) return !!data.property_address;
   if (step === 3) return !!data.service;
   if (step === 4 && data.service) {
     const fields = SERVICE_FIELDS[data.service];
     const details = data.job_details as Record<string, string | number>;
-    return fields.every((f) => !f.required || (details[f.key] !== undefined && details[f.key] !== '' && details[f.key] !== 0));
+    return fields.every(
+      (f) =>
+        !f.required ||
+        (details[f.key] !== undefined && details[f.key] !== '' && details[f.key] !== 0),
+    );
   }
+  if (step === 5) return !!data.property_area;
+  if (step === 6) return !!data.terrain;
+  if (step === 7) return true;
   return true;
 }
 
@@ -45,9 +57,9 @@ export function QuoteForm() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const update = (updates: Partial<QuoteFormData>) => setForm((f) => ({ ...f, ...updates }));
-
-  const next = () => setStep((s) => Math.min(s + 1, 4));
+  const next = () => setStep((s) => Math.min(s + 1, TOTAL));
   const back = () => setStep((s) => Math.max(s - 1, 1));
+  const goTo = (s: number) => setStep(s);
 
   const submit = async () => {
     setStatus('submitting');
@@ -85,12 +97,15 @@ export function QuoteForm() {
 
   return (
     <div className="rounded-[10px] border border-[#e5e5e3] bg-white px-7 py-8">
-      <ProgressBar currentStep={step} totalSteps={4} labels={STEPS} />
+      <ProgressBar currentStep={step} totalSteps={TOTAL} labels={STEPS} />
 
       {step === 1 && <ContactStep data={form} onChange={update} />}
       {step === 2 && <PropertyStep data={form} onChange={update} />}
       {step === 3 && <ServiceStep data={form} onChange={update} />}
-      {step === 4 && <JobDetailsStep data={form} onChange={update} />}
+      {step === 4 && <ServiceDetailsStep data={form} onChange={update} />}
+      {step === 5 && <AreaStep data={form} onChange={update} />}
+      {step === 6 && <TerrainStep data={form} onChange={update} />}
+      {step === 7 && <ConfirmStep data={form} onEdit={goTo} />}
 
       {status === 'error' && (
         <p className="mt-4 text-sm text-red-500">Something went wrong. Please try again.</p>
@@ -106,7 +121,7 @@ export function QuoteForm() {
             Back
           </button>
         )}
-        {step < 4 ? (
+        {step < TOTAL ? (
           <button
             type="button"
             onClick={next}
@@ -122,7 +137,7 @@ export function QuoteForm() {
             disabled={status === 'submitting'}
             className="ml-auto inline-flex cursor-pointer items-center gap-2 rounded-[5px] border-none bg-brand px-8 py-[13px] text-[15px] font-semibold text-white transition-all duration-250 hover:-translate-y-0.5 hover:bg-brand-dark hover:shadow-[0_8px_20px_rgba(74,124,47,0.25)] disabled:pointer-events-none disabled:opacity-50"
           >
-            {status === 'submitting' ? 'Sending...' : 'Submit Quote Request →'}
+            {status === 'submitting' ? 'Sending...' : 'Send Quote Request →'}
           </button>
         )}
       </div>
