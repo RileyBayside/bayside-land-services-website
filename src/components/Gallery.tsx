@@ -9,6 +9,7 @@ const GALLERY_IMAGES = [
   '/images/gallery/asv-mulch.png',
   '/images/gallery/asv.png',
   '/images/gallery/takeuchi.png',
+  '/images/gallery/new-holland.png',
   '/images/gallery/asv-rt120-1.jpg',
   '/images/gallery/asv-rt120-2.jpg',
   '/images/gallery/asv-rt120-3.jpg',
