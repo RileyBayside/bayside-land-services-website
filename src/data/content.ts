@@ -16,6 +16,12 @@ export const SERVICES = [
     image: '/images/services/takeuchi.png',
   },
   {
+    title: 'Slashing',
+    description:
+      'Regular slashing keeps pastures, roadsides, and large blocks under control. We cover large areas efficiently and keep growth at a manageable level between more intensive clearing jobs.',
+    image: '/images/services/slashing.jpg',
+  },
+  {
     title: 'Block & Land Clearing',
     description:
       'Whether it\'s a house block, a development site, or farmland with years of regrowth — we\'ll get it cleared. Light scrub to heavy timber, we leave the site clean and ready to work on.',
@@ -89,6 +95,19 @@ export const SERVICE_DETAILS = [
       'Single-pass — nothing to haul away or burn',
       'Suitable for slopes and rough terrain',
       'Leaves ground covered with a protective mulch layer',
+    ],
+  },
+  {
+    title: 'Slashing',
+    image: '/images/services/slashing.jpg',
+    video: '/images/services/slashing-video.mp4',
+    description:
+      'Regular slashing keeps pastures, roadsides, and large rural blocks under control. We cover large areas efficiently — cutting growth back to a manageable level between more intensive clearing or mulching jobs. Ideal for ongoing maintenance programs where full mulching isn\'t required every cycle.',
+    bullets: [
+      'Pastures, roadsides, and large rural blocks',
+      'Efficient coverage over large areas',
+      'Ideal for ongoing maintenance programs',
+      'Works well paired with periodic mulching',
     ],
   },
   {
