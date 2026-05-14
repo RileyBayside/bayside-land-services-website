@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Check } from 'lucide-react';
 import type { QuoteFormData } from '@/types/quote';
 import { SERVICE_FIELDS } from '@/data/quote-fields';
@@ -55,6 +55,18 @@ export function QuoteForm() {
   const [step, setStep] = useState(1);
   const [form, setForm] = useState<QuoteFormData>(EMPTY_FORM);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const formRef = useRef<HTMLDivElement>(null);
+  const isMounted = useRef(false);
+
+  useEffect(() => {
+    if (!isMounted.current) {
+      isMounted.current = true;
+      return;
+    }
+    if (!formRef.current) return;
+    const top = formRef.current.getBoundingClientRect().top + window.scrollY - 24;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  }, [step]);
 
   const update = (updates: Partial<QuoteFormData>) => setForm((f) => ({ ...f, ...updates }));
   const next = () => setStep((s) => Math.min(s + 1, TOTAL));
@@ -96,7 +108,7 @@ export function QuoteForm() {
   }
 
   return (
-    <div className="rounded-[10px] border border-[#e5e5e3] bg-white px-7 py-8">
+    <div ref={formRef} className="rounded-[10px] border border-[#e5e5e3] bg-white px-7 py-8">
       <ProgressBar currentStep={step} totalSteps={TOTAL} labels={STEPS} />
 
       {step === 1 && <ContactStep data={form} onChange={update} />}
