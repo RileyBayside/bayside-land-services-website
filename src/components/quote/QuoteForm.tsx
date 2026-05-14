@@ -57,12 +57,12 @@ export function QuoteForm() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const rafRef = useRef<number | null>(null);
 
-  // Called synchronously inside click handlers — before React re-renders — so the
-  // scroll start position is captured cleanly with no layout-shift interference.
-  // Cancels any in-flight animation first so double-clicks don't stutter.
+  // Called synchronously inside click handlers — before React re-renders.
+  // startTime is captured at click time (not first-frame time) so the animation
+  // accounts for the ~16ms before the first RAF fires, making it feel instant.
   function scrollUp() {
     const TARGET = 110;
-    const DURATION = 380;
+    const DURATION = 340;
 
     if (window.scrollY <= TARGET) return;
 
@@ -73,13 +73,11 @@ export function QuoteForm() {
 
     const startY = window.scrollY;
     const distance = TARGET - startY;
-    let startTime: number | null = null;
+    const startTime = performance.now(); // lock in at click time, not first frame
 
     function tick(now: number) {
-      if (startTime === null) startTime = now;
       const t = Math.min((now - startTime) / DURATION, 1);
-      // easeOutExpo — ultra-fast start, feathers to a stop with no jank
-      const eased = t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+      const eased = t === 1 ? 1 : 1 - Math.pow(2, -10 * t); // easeOutExpo
       window.scrollTo(0, startY + distance * eased);
       if (t < 1) {
         rafRef.current = requestAnimationFrame(tick);
@@ -89,6 +87,31 @@ export function QuoteForm() {
     }
 
     rafRef.current = requestAnimationFrame(tick);
+  }
+
+  // On hover: begin a slow drift toward the target so most of the
+  // distance is covered before the user clicks.
+  function preScroll() {
+    const TARGET = 110;
+    if (window.scrollY <= TARGET + 40) return; // close enough — don't bother
+
+    if (rafRef.current !== null) return; // don't interrupt a click-scroll
+
+    const startY = window.scrollY;
+    const distance = TARGET - startY;
+    const startTime = performance.now();
+    const HOVER_DURATION = 600; // slow drift — feels like passive, gentle movement
+
+    function tick(now: number) {
+      // Stop if a click-scroll has taken over
+      if (rafRef.current === null && now > startTime + 16) return;
+      const t = Math.min((now - startTime) / HOVER_DURATION, 1);
+      const eased = t * t; // easeInQuad — starts very gently
+      window.scrollTo(0, startY + distance * eased * 0.6); // only drift 60% of the way
+      if (t < 1) requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
   }
 
   const update = (updates: Partial<QuoteFormData>) => setForm((f) => ({ ...f, ...updates }));
@@ -134,13 +157,15 @@ export function QuoteForm() {
     <div className="rounded-[10px] border border-[#e5e5e3] bg-white px-7 py-8">
       <ProgressBar currentStep={step} totalSteps={TOTAL} labels={STEPS} />
 
-      {step === 1 && <ContactStep data={form} onChange={update} />}
-      {step === 2 && <PropertyStep data={form} onChange={update} />}
-      {step === 3 && <ServiceStep data={form} onChange={update} />}
-      {step === 4 && <ServiceDetailsStep data={form} onChange={update} />}
-      {step === 5 && <AreaStep data={form} onChange={update} />}
-      {step === 6 && <TerrainStep data={form} onChange={update} />}
-      {step === 7 && <ConfirmStep data={form} onEdit={goTo} />}
+      <div key={step} className="animate-step-in">
+        {step === 1 && <ContactStep data={form} onChange={update} />}
+        {step === 2 && <PropertyStep data={form} onChange={update} />}
+        {step === 3 && <ServiceStep data={form} onChange={update} />}
+        {step === 4 && <ServiceDetailsStep data={form} onChange={update} />}
+        {step === 5 && <AreaStep data={form} onChange={update} />}
+        {step === 6 && <TerrainStep data={form} onChange={update} />}
+        {step === 7 && <ConfirmStep data={form} onEdit={goTo} />}
+      </div>
 
       {status === 'error' && (
         <p className="mt-4 text-sm text-red-500">Something went wrong. Please try again.</p>
@@ -160,6 +185,7 @@ export function QuoteForm() {
           <button
             type="button"
             onClick={next}
+            onMouseEnter={preScroll}
             disabled={!isStepValid(step, form)}
             className="ml-auto inline-flex cursor-pointer items-center gap-2 rounded-[5px] border-none bg-brand px-8 py-[13px] text-[15px] font-semibold text-white transition-all duration-250 hover:-translate-y-0.5 hover:bg-brand-dark hover:shadow-[0_8px_20px_rgba(74,124,47,0.25)] disabled:pointer-events-none disabled:opacity-50"
           >
