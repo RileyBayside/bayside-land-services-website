@@ -10,17 +10,17 @@ interface AddressAutocompleteProps {
   placeholder?: string;
 }
 
-setOptions({
-  key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY!,
-  v: 'weekly',
-});
-
 export function AddressAutocomplete({ value, onChange, className, placeholder }: AddressAutocompleteProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null);
 
   useEffect(() => {
     let isMounted = true;
+
+    setOptions({
+      key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY!,
+      v: 'weekly',
+    });
 
     importLibrary('places').then(() => {
       if (!isMounted || !inputRef.current) return;
