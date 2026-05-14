@@ -15,9 +15,7 @@ export function PropertyStep({ data, onChange }: PropertyStepProps) {
       <h2 className="font-heading text-xl font-bold text-black">The property</h2>
       <div>
         <AddressAutocomplete
-          value={data.property_address}
           onChange={(value) => onChange({ property_address: value })}
-          className={inputClass}
           placeholder="Start typing an address *"
         />
         <p className="mt-1.5 text-xs text-[#999]">

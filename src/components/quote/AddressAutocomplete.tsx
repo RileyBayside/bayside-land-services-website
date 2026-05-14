@@ -4,15 +4,12 @@ import { useEffect, useRef } from 'react';
 import { setOptions, importLibrary } from '@googlemaps/js-api-loader';
 
 interface AddressAutocompleteProps {
-  value: string;
   onChange: (value: string) => void;
-  className?: string;
   placeholder?: string;
 }
 
-export function AddressAutocomplete({ value, onChange, className, placeholder }: AddressAutocompleteProps) {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null);
+export function AddressAutocomplete({ onChange, placeholder }: AddressAutocompleteProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let isMounted = true;
@@ -23,39 +20,27 @@ export function AddressAutocomplete({ value, onChange, className, placeholder }:
     });
 
     importLibrary('places').then(() => {
-      if (!isMounted || !inputRef.current) return;
+      if (!isMounted || !containerRef.current || containerRef.current.childElementCount > 0) return;
 
-      autocompleteRef.current = new google.maps.places.Autocomplete(inputRef.current, {
-        componentRestrictions: { country: 'au' },
-        fields: ['formatted_address'],
-        types: ['address'],
+      const el = new google.maps.places.PlaceAutocompleteElement({
+        includedRegionCodes: ['au'],
+        includedPrimaryTypes: ['address'],
+        placeholder: placeholder ?? null,
       });
 
-      autocompleteRef.current.addListener('place_changed', () => {
-        const place = autocompleteRef.current?.getPlace();
-        if (place?.formatted_address) {
-          onChange(place.formatted_address);
-        }
+      containerRef.current.appendChild(el);
+
+      el.addEventListener('gmp-select', async (event: google.maps.places.PlacePredictionSelectEvent) => {
+        const place = event.placePrediction.toPlace();
+        await place.fetchFields({ fields: ['formattedAddress'] });
+        if (place.formattedAddress) onChange(place.formattedAddress);
       });
     });
 
     return () => {
       isMounted = false;
-      if (autocompleteRef.current) {
-        google.maps.event.clearInstanceListeners(autocompleteRef.current);
-      }
     };
-  }, [onChange]);
+  }, [onChange, placeholder]);
 
-  return (
-    <input
-      ref={inputRef}
-      type="text"
-      className={className}
-      placeholder={placeholder}
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      autoComplete="off"
-    />
-  );
+  return <div ref={containerRef} data-address-autocomplete />;
 }

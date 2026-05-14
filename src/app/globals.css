@@ -50,3 +50,26 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* Google PlaceAutocompleteElement — match site input style */
+[data-address-autocomplete] gmp-placeautocomplete,
+[data-address-autocomplete] > * {
+  width: 100%;
+  display: block;
+}
+
+gmp-placeautocomplete {
+  --gmp-material-container-color: #ffffff;
+  --gmp-material-on-container-color: #000000;
+  --gmp-material-container-low-color: #ffffff;
+  width: 100%;
+  border-radius: 5px;
+  border: 1.5px solid #e5e5e3;
+  font-family: var(--font-body), sans-serif;
+  font-size: 15px;
+}
+
+gmp-placeautocomplete:focus-within {
+  border-color: #4A7C2F;
+  box-shadow: 0 0 0 3px rgba(74, 124, 47, 0.12);
+}
