@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export function HeroPhotoLogo() {
   const [scrollY, setScrollY] = useState(0);
@@ -16,11 +17,13 @@ export function HeroPhotoLogo() {
   const opacity = Math.max(0, 1 - scrollY / 80);
 
   return (
-    <div
-      className="absolute z-10 pointer-events-none"
+    <Link
+      href="/"
+      className="absolute z-10"
       style={{
         opacity,
         transition: 'opacity 150ms ease-out',
+        pointerEvents: opacity > 0 ? 'auto' : 'none',
         right: '10%',
         top: '38%',
         transform: 'translateY(calc(-50% - 100px))',
@@ -34,6 +37,6 @@ export function HeroPhotoLogo() {
         className="h-36 w-auto drop-shadow-[0_2px_20px_rgba(0,0,0,0.9)]"
         priority
       />
-    </div>
+    </Link>
   );
 }
