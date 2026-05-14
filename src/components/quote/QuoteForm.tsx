@@ -13,6 +13,28 @@ import { AreaStep } from './steps/AreaStep';
 import { TerrainStep } from './steps/TerrainStep';
 import { ConfirmStep } from './steps/ConfirmStep';
 
+// Scrolls up to targetY with a natural ease-out deceleration.
+// Only fires when the user is already below the target (no jarring downward jumps).
+function smoothScrollTo(targetY: number, duration = 700) {
+  const startY = window.scrollY;
+  if (startY <= targetY) return;
+  const distance = targetY - startY;
+  let startTime: number | null = null;
+
+  function easeInOutQuart(t: number) {
+    return t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
+  }
+
+  function tick(now: number) {
+    if (startTime === null) startTime = now;
+    const t = Math.min((now - startTime) / duration, 1);
+    window.scrollTo(0, startY + distance * easeInOutQuart(t));
+    if (t < 1) requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+}
+
 const STEPS = ['Contact', 'Property', 'Service', 'Details', 'Area', 'Terrain', 'Confirm'];
 const TOTAL = STEPS.length;
 
@@ -62,7 +84,7 @@ export function QuoteForm() {
       isMounted.current = true;
       return;
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    smoothScrollTo(110);
   }, [step]);
 
   const update = (updates: Partial<QuoteFormData>) => setForm((f) => ({ ...f, ...updates }));
