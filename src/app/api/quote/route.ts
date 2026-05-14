@@ -6,8 +6,15 @@ import type { QuoteFormData } from '@/types/quote';
 export async function POST(request: Request) {
   const body: QuoteFormData = await request.json();
 
-  if (!body.contact_name || !body.contact_email || !body.contact_phone ||
-      !body.property_address || !body.property_size || !body.service) {
+  if (
+    !body.contact_name ||
+    !body.contact_email ||
+    !body.contact_phone ||
+    !body.property_address ||
+    !body.property_area ||
+    !body.terrain ||
+    !body.service
+  ) {
     return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
   }
 
@@ -22,7 +29,8 @@ export async function POST(request: Request) {
       contact_email: body.contact_email,
       contact_phone: body.contact_phone,
       property_address: body.property_address,
-      property_size: body.property_size,
+      property_area: body.property_area,
+      terrain: body.terrain,
       job_details: body.job_details,
       notes: body.notes ?? '',
     })
