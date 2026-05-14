@@ -13,7 +13,7 @@ export function TerrainStep({ data, onChange }: TerrainStepProps) {
       <h2 className="font-heading text-xl font-bold text-black">How would you describe the terrain?</h2>
       <p className="text-sm text-[#666]">Choose the option that best matches your site.</p>
       <div className="grid grid-cols-2 gap-3">
-        {TERRAIN_OPTIONS.map((opt) => (
+        {TERRAIN_OPTIONS.map((opt, i) => (
           <VisualCard
             key={opt.key}
             label={opt.label}
@@ -21,6 +21,7 @@ export function TerrainStep({ data, onChange }: TerrainStepProps) {
             image={opt.image}
             selected={data.terrain === opt.key}
             onClick={() => onChange({ terrain: opt.key as TerrainType })}
+            priority={i < 2}
           />
         ))}
       </div>

@@ -10,9 +10,10 @@ interface VisualCardProps {
   icon?: React.ReactNode;
   selected: boolean;
   onClick: () => void;
+  priority?: boolean;
 }
 
-export function VisualCard({ label, description, image, icon, selected, onClick }: VisualCardProps) {
+export function VisualCard({ label, description, image, icon, selected, onClick, priority }: VisualCardProps) {
   return (
     <button
       type="button"
@@ -25,7 +26,7 @@ export function VisualCard({ label, description, image, icon, selected, onClick 
     >
       {image && (
         <div className="relative aspect-video w-full overflow-hidden">
-          <Image src={image} alt={label} fill sizes="(max-width: 640px) 50vw, 300px" className="object-cover" />
+          <Image src={image} alt={label} fill sizes="(max-width: 640px) 50vw, 300px" className="object-cover" priority={priority} />
           {selected && <div className="absolute inset-0 bg-brand/20" />}
         </div>
       )}

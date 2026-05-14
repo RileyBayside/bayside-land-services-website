@@ -14,7 +14,7 @@ export function ServiceStep({ data, onChange }: ServiceStepProps) {
     <div className="flex flex-col gap-4">
       <h2 className="font-heading text-xl font-bold text-black">What service do you need?</h2>
       <div className="grid grid-cols-2 gap-3">
-        {SERVICES.map((service) => (
+        {SERVICES.map((service, i) => (
           <VisualCard
             key={service}
             label={SERVICE_LABELS[service]}
@@ -22,6 +22,7 @@ export function ServiceStep({ data, onChange }: ServiceStepProps) {
             image={SERVICE_IMAGES[service]}
             selected={data.service === service}
             onClick={() => onChange({ service, job_details: {} })}
+            priority={i < 2}
           />
         ))}
       </div>
